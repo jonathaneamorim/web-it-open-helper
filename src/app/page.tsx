@@ -6,7 +6,7 @@ export default function Home() {
        <ul className="list-disc">
             <li className="text-red-50">Programação</li>
             <ul>
-              <li>Banco de dados</li>
+              <li><a href="/databases">Banco de dados</a></li>
               <li>Linguagens de programação</li>
               <li>Docker</li>
               <li><a href="/git">git</a></li>
