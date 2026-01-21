@@ -1,10 +1,11 @@
 import { List } from "@/components/list/list";
-import Listing from "@/components/list/list.primary";
+import { Title } from "@/components/title/title";
+import { Paragraph } from "@/components/paragraph/paragraph";
+
 
 export default function Home() {
-
-  const list = [
-    {
+  const listProgramming = [
+    { 
       name: "Banco de dados",
       link: "/databases"
     },
@@ -29,10 +30,14 @@ export default function Home() {
 
   return (
     <div>
-      <h1>IT Open Helper</h1>
-      <p className="">Este é um reposítorio que tem o objetivo de centralizar, organizar e guardar minhas informações a respeito de diversos campos da tecnologia</p>
+      <Title 
+        text={"IT Open Helper"}
+      />
+      <Paragraph 
+        text={"Este é um reposítorio que tem o objetivo de centralizar, organizar e guardar minhas informações a respeito de diversos campos da tecnologia"} 
+      />
        <ul className="list-decimal">
-          <List variant={"primary"} listTitle={"Programação"} hasListTitle={true} items={list} />
+          <List variant={"primary"} listTitle={"Programação"} hasListTitle={true} items={listProgramming} />
             <li>Sistemas operacionais</li>
             <ul>
               <li>Linux</li>
