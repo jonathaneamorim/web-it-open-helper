@@ -5,19 +5,19 @@ import { Header } from "@/components/header/header";
 
   const listProgramming = [
     { 
-      name: "Banco de dados",
-      url: "/databases"
+      name: "Programming",
+      url: "/programming"
     },
     {
-      name: "Programação",
+      name: "Sistemas Operacionais",
       url: "/"
     },
     {
-      name: "Docker",
+      name: "Navegadores",
       url: "/"
     },
     {
-      name: "Git",
+      name: "Softwares",
       url: "/"
     }
   ];

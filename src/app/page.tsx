@@ -30,9 +30,6 @@ export default function Home() {
 
   return (
     <div>
-      <Title 
-        text={"IT Open Helper"}
-      />
       <Paragraph 
         text={"Este é um reposítorio que tem o objetivo de centralizar, organizar e guardar minhas informações a respeito de diversos campos da tecnologia"} 
       />
