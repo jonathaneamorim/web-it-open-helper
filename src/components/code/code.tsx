@@ -1,26 +1,31 @@
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/github-dark.css";
 
 type Props = {
     code: string,
-    language: string
+    language: string,
+    type: string
 }   
 
+export function Code({code, type, language = "js"}: Props) {
+    let formattedCode = "";
 
-export function Code({code, language = "js"}: Props) {
-
-    const markdown = [
-        "```" + language,
-        code,
-        "```",
-    ].join("\n");
+    if(type === "inline") {
+        formattedCode = `\`${code}\``;
+    } else {
+        formattedCode = [
+            "```" + language,
+            code,
+            "```",
+        ].join("\n").replace(/\n/gi, "&nbsp; \n");
+    }
 
     return(
-        <div className="bg-gray-500">
-            <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
-                {markdown}
-            </ReactMarkdown>
-        </div>
+       <div className="mx-3">
+            <ReactMarkdown 
+                rehypePlugins={[rehypeHighlight]}
+                children={formattedCode}
+            />
+       </div>
     );
 }
