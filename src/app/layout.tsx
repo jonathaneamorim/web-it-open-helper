@@ -10,7 +10,7 @@ import { Header } from "@/components/header/header";
     },
     {
       name: "Sistemas Operacionais",
-      url: "/"
+      url: "/so"
     },
     {
       name: "Navegadores",
