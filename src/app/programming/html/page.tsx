@@ -68,6 +68,7 @@ export default function Html() {
             <Paragraph text="Anotações referente a trilha de HTML e CSS" />
             <Title text="Sumário" />
             <List variant="sumary" items={sumaryItems} />
+            <hr />
             <p>{
 
 ## TAGs de estrutura básica
