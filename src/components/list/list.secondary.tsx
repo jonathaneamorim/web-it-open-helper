@@ -1,21 +1,14 @@
-type ListItem = {
-    name?: string,
-    link?: string
-}
-
 type Props = {
-    hasListTitle?: boolean;
     listTitle?: string;
-    variant?: string,
-    items?: ListItem[];
+    items?: string[];
 };
 
-export default function ListSecondary({ hasListTitle, listTitle, items }: Props) {
+export default function ListSecondary({ listTitle, items }: Props) {
     return (
         <div>
-            { hasListTitle && <h2>{listTitle}</h2>}
+            { listTitle && <h2>{listTitle}</h2>}
             <ul>
-                {items && items.map((item) => ( <li key={item.name}>{item.name}</li> ))}
+                {items && items.map((item) => ( <li key={item}>{item}</li> ))}
             </ul>
         </div>
     );

@@ -1,5 +1,6 @@
 import ListPrimary from "./list.primary"
 import ListSecondary from "./list.secondary";
+import ListSumary from "./list.sumary";
 
 type ListingItem = {
     name?: string,
@@ -19,6 +20,10 @@ type ListProps =
             listTitle?: string;
             items?: ListingItem[];
         }
+    | {
+            variant: "sumary",
+            items: ListingItem[];
+    }
 
 export function List(props: ListProps) {
     switch(props.variant) {
@@ -35,6 +40,12 @@ export function List(props: ListProps) {
                 <ListSecondary 
                     hasListTitle={props.hasListTitle}
                     listTitle={props.listTitle}
+                    items={props.items}
+                />
+            );
+        case "sumary":
+            return (
+                <ListSumary 
                     items={props.items}
                 />
             );
