@@ -1,19 +1,24 @@
 import { List } from "@/components/list/list";
+import { url } from "inspector";
 
 export default function Programming() {
 
     const listProgramming = [
     { 
       name: "Databases",
-      url: "/programming/databases"
+      link: "/programming/databases"
     },
     {
       name: "git",
-      url: "/programming/git"
+      link: "/programming/git"
     },
     {
       name: "Docker",
-      url: "/programming/docker"
+      link: "/programming/docker"
+    },
+    {
+      name: "Html",
+      link: "/programming/html"
     }
   ];
 
