@@ -1,27 +1,74 @@
-export default function HtmlPage() {
+import { Title } from "@/components/title/title"
+import { Paragraph } from "@/components/paragraph/paragraph"
+import { List } from "@/components/list/list";
+
+const sumaryItems = [
+  {
+    name: "TAGs de estrutura básica",
+    link: "#tags-de-estrutura-básica"
+  },
+  {
+    name: "Tags estruturais",
+    link: "#tags-estruturais"
+  },
+  { 
+    name: "Principais atributos de uma tag HTML",
+    link: "#principais-atributos-de-uma-tag-html"
+  },
+  {
+    name: "TAGs de texto e manipulação",
+    link: "#tags-de-texto-e-manipulação"
+  },
+  {
+    name: "TAG de link",
+    link: "#tag-de-link"
+  },
+  {
+    name: "TAGs de multimidia",
+    link: "#tags-de-multimidia"
+  },
+  {
+    name: "Estrutura básica do CSS",
+    link: "#estrutura-básica-do-css"
+  },
+  {
+    name: "Seletores CSS",
+    link: "#seletores-css"
+  },
+  {
+    name: "Seletores de Pseudo-classes",
+    link: "#seletores-de-pseudo-classes"
+  },
+  {
+    name: "Seletores de Pseudo-elementos",
+    link: "#seletores-de-pseudo-elementos"
+  },
+  {
+    name: "Flex",
+    link: "#flex"
+  },
+  {
+    name: "Propriedades",
+    link: "#propriedades"
+  },
+  {
+    name: "Media Queries",
+    link: "#media-queries"
+  },
+  {
+    name: "Links",
+    link: "#links"
+  }
+];
+
+export default function Html() {
     return (
         <div>
-            <h1>HTML Page</h1>
-            <p>{`
-            # Anotações referente a trilha de HTML e CSS
-
-# Sumário
-- [Anotações referente a trilha de HTML e CSS](#anotações-referente-a-trilha-de-html-e-css)
-- [Sumário](#sumário)
-  - [TAGs de estrutura básica](#tags-de-estrutura-básica)
-  - [Tags estruturais](#tags-estruturais)
-  - [Principais atributos de uma tag HTML](#principais-atributos-de-uma-tag-html)
-  - [TAGs de texto e manipulação](#tags-de-texto-e-manipulação)
-  - [TAG de link](#tag-de-link)
-  - [TAGs de multimidia](#tags-de-multimidia)
-  - [Estrutura básica do CSS](#estrutura-básica-do-css)
-  - [Seletores CSS](#seletores-css)
-  - [Seletores de Pseudo-classes](#seletores-de-pseudo-classes)
-  - [Seletores de Pseudo-elementos](#seletores-de-pseudo-elementos)
-  - [Flex](#flex)
-  - [Propriedades](#propriedades)
-  - [Media Queries](#media-queries)
-  - [Links](#links)
+            <Title text="Anotações referente a trilha de HTML e CSS" />
+            <Paragraph text="Anotações referente a trilha de HTML e CSS" />
+            <Title text="Sumário" />
+            <List variant="sumary" items={sumaryItems} />
+            <p>{
 
 ## TAGs de estrutura básica
 - `<!DOCTYPE>`: A tag !DOCTYPE informa ao navegador a versão do HTML que está sendo utilizada.
