@@ -1,13 +1,4 @@
-type Links = {
-    name: string,
-    url: string
-}
-
-type Props = {
-    links: Links[]
-}
-
-export function HeaderSecondary({links}: Props) {
+export function HeaderSecondary() {
     return(
         <nav>
             <h1>secondary</h1>

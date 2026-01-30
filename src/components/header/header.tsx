@@ -6,25 +6,19 @@ type Links = {
     name: string
 }
 
-type HeaderProps = 
-    | {
-        variant: "primary",
-        links: Links[]
-    }
-    | {
-        variant: "secondary",
-        links: Links[]
-    }
+type HeaderProps = {
+    variant: "primary" | "secondary",
+}
 
 export function Header(props: HeaderProps) {  
     switch(props.variant) {
         case "primary":
             return(
-                <HeaderPrimary links={props.links} />
+                <HeaderPrimary />
             );
         case "secondary":
             return(
-                <HeaderSecondary links={props.links} />
+                <HeaderSecondary  />
             );
     }
 };
