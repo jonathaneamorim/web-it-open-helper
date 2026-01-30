@@ -1,0 +1,245 @@
+{
+  "category": "HTML",
+  "sections": [
+    {
+      "id": "tags-estrutura-basica",
+      "title": "TAGs de estrutura básica",
+      "items": [
+        {
+          "code": "<!DOCTYPE>",
+          "description": "A tag !DOCTYPE informa ao navegador a versão do HTML que está sendo utilizada."
+        },
+        {
+          "code": "<html>",
+          "description": "Esta tag é o elemento básico da estrutura do HTML. Assim sendo, ela conterá todos os elementos do seu documento. Todo documento HTML deve iniciar e finalizar com essa tag."
+        },
+        {
+          "code": "<head>",
+          "description": "Essa tag delimita o cabeçalho do documento. Não possui nenhum valor visível, porém é capaz de transmitir ao navegador diversas informações muito úteis e essenciais a uma boa apresentação do seu documento HTML."
+        },
+        {
+          "code": "<title>",
+          "description": "Essa tag define o título da sua página, o nome que aparecerá na sua aba, janela ou guia. Por esta razão, a tag <title> é de grande importância para o SEO."
+        },
+        {
+          "code": "<meta/>",
+          "description": "Essa tag permite inserir metadados ao seu documento."
+        },
+        {
+          "code": "<body>",
+          "description": "Finalmente, a tag que representa o corpo do documento. Em síntese, é nessa tag que todos os elementos visíveis do seu site devem ser inseridos."
+        }
+      ]
+    },
+    {
+      "id": "tags-estruturais",
+      "title": "Tags estruturais",
+      "items": [
+        {
+          "code": "<header>",
+          "description": "Definem um cabeçalho."
+        },
+        {
+          "code": "<main>",
+          "description": "Conteudo principal da página."
+        },
+        {
+          "code": "<article>",
+          "description": "Definem um artigo. É muito utilizada por blogs."
+        },
+        {
+          "code": "<aside>",
+          "description": "É utilizado para conteúdo secundário, como glossários ou explicações laterais."
+        },
+        {
+          "code": "<footer>",
+          "description": "Define um rodapé para a página."
+        },
+        {
+          "code": "<section>",
+          "description": "Essas tags definem uma sessão para sua página."
+        },
+        {
+          "code": "<nav>",
+          "description": "Essa tag define um conteúdo de navegação. É muito utilizado em conjunto com listas e na criação de menus."
+        },
+        {
+          "code": "<div>",
+          "description": "Define uma divisão da página. Desta forma, funciona como um container para conteúdo de fluxo. Uma vez que não possui um valor semântico, é muito utilizado para organizar melhor o conteúdo. Anteriormente ao HTML5, era utilizado no lugar das categorias acima."
+        }
+      ]
+    },
+    {
+      "id": "principais-atributos",
+      "title": "Principais atributos de uma tag HTML",
+      "items": [
+        {
+          "code": "class=\"…\"",
+          "description": "Atribui uma classe ao elemento (uma classe pode ser utilizada para um ou mais elementos)."
+        },
+        {
+          "code": "id=\"…\"",
+          "description": "Atribui um id ao elemento (um id deve ser único, ou seja atribuído a um único elemento)."
+        },
+        {
+          "code": "hidden",
+          "description": "Oculta o elemento."
+        },
+        {
+          "code": "style=\"…\"",
+          "description": "Permite incluir elementos CSS (estilos) dentro da tag."
+        },
+        {
+          "code": "lang=\"…\"",
+          "description": "Define o idioma principal do elemento."
+        },
+        {
+          "code": "title=\"…\"",
+          "description": "Define o título do elemento."
+        },
+        {
+          "code": "alt=\"…\"",
+          "description": "Define um texto alternativo e, por isso, é muito utilizado em imagens, auxilia nas práticas de SEO."
+        },
+        {
+          "code": "align=\"…\"",
+          "description": "Permite definir o padrão de alinhamento desse elemento, como por exemplo: right, center, left e justify."
+        },
+        {
+          "code": "width=\"…\"",
+          "description": "Define uma largura para o elemento."
+        },
+        {
+          "code": "height=\"…\"",
+          "description": "Define uma altura para o elemento."
+        }
+      ]
+    },
+    {
+      "id": "tags-texto-manipulacao",
+      "title": "TAGs de texto e manipulação",
+      "items": [
+        {
+          "code": "<p>",
+          "description": "Principal tag de texto, compõe um parágrafo."
+        },
+        {
+          "code": "<h1> - <h6>",
+          "description": "Definem titulos da página HTML."
+        },
+        {
+          "code": "<span>",
+          "description": "Parecido com a tag de paragrafo, geralmente utilizado para pequenas informações. Também pode ser usada como container."
+        },
+        {
+          "code": "<pre>",
+          "description": "Texto pré-formatado. Utilizada para inserir codigo."
+        },
+        {
+          "code": "<strong>",
+          "description": "Representa um trecho de texto com forte importância e deixa o texto em negrito. Uma tag <strong> dentro de outra <strong> tem mais relevância."
+        },
+        {
+          "code": "<b>",
+          "description": "Estiliza o texto para negrito, sem definir relevâncias."
+        },
+        {
+          "code": "<i>",
+          "description": "Texto em italico sem definir relevâncias."
+        },
+        {
+          "code": "<em>",
+          "description": "Representa uma enfase no texto (Não representa a mesma coisa que o <i>)."
+        },
+        {
+          "code": "<br/>",
+          "description": "Essa tag não necessita de fechamento, ela executa a função de quebra de linha."
+        },
+        {
+          "code": "<hr/>",
+          "description": "Essa tag não necessita de fechamento, ela forma uma linha horizontal."
+        }
+      ]
+    },
+    {
+      "id": "tag-link",
+      "title": "TAG de link",
+      "items": [
+        {
+          "code": "<a>",
+          "description": "Essa tag é responsável por fazer a ligação de nossa página a outra."
+        },
+        {
+          "code": "href=\"...\"",
+          "description": "Atributo para inserir o link que deseja anexar."
+        },
+        {
+          "code": "target=\"...\"",
+          "description": "Define a forma de abertura do link no navegador."
+        },
+        {
+          "code": "_self",
+          "description": "Abrir o link na mesma janela/aba (default)."
+        },
+        {
+          "code": "_blank",
+          "description": "Abrir o link em uma nova aba/janela."
+        },
+        {
+          "code": "_parent",
+          "description": "Abrir o link na janela/aba pai (útil se o link estiver dentro de um <iframe>)."
+        },
+        {
+          "code": "_top",
+          "description": "Abrir o link na janela/aba principal, substituindo qualquer estrutura de frames ou iframes."
+        },
+        {
+          "code": "<nome>",
+          "description": "Abrir o link em uma aba/janela específica com o nome fornecido (ex: target=\"novaAba\"). Se uma aba com esse nome não existir, será criada."
+        },
+        {
+          "code": "accesskey",
+          "description": "Define uma tecla de atalho para ativar o link. Ex: accesskey=\"r\"."
+        },
+        {
+          "code": "referrerpolicy",
+          "description": "Define qual política de referenciador será usada ao clicar no link. Ex: referrerpolicy=\"no-referrer\"."
+        },
+        {
+          "code": "download",
+          "description": "Indica que o link deve iniciar o download de um arquivo em vez de navegar para ele. Ex: download=\"arquivo.pdf\"."
+        },
+        {
+          "code": "hreflang",
+          "description": "Indica o idioma do recurso vinculado. Ex: hreflang=\"en\"."
+        },
+        {
+          "code": "rel",
+          "description": "Especifica a relação entre a página atual e o destino do link. Ex: rel=\"noopener noreferrer\"."
+        }
+      ]
+    },
+    {
+      "id": "tags-multimidia",
+      "title": "TAGs de multimidia",
+      "items": [
+        {
+          "code": "<img>",
+          "description": "Utilizada para inserir imagem."
+        },
+        {
+          "code": "<iframe>",
+          "description": "Inserir recursos de outras páginas."
+        },
+        {
+          "code": "<video>",
+          "description": "Vem acompanhada da tag <source src=\"[location]\" type=\"[type]\"]. Utilizada para inserir um vídeo."
+        },
+        {
+          "code": "<audio>",
+          "description": "Vem acompanhada da tag <source src=\"[location]\" type=\"[Type]\"]. Utilizada para inserir um audio."
+        }
+      ]
+    }
+  ]
+}
