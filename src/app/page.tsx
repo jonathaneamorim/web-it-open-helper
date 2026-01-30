@@ -1,60 +1,31 @@
-import { List } from "@/components/list/list";
-import { Title } from "@/components/title/title";
+// src/app/page.tsx
 import { Paragraph } from "@/components/paragraph/paragraph";
-
+import { List } from "@/components/list/list";
+import navigationData from "@/data/navigation.json"; // Importando o mock
 
 export default function Home() {
-  const listProgramming = [
-    { 
-      name: "Banco de dados",
-      link: "/databases"
-    },
-    {
-      name: "Linguagens de programação",
-      link: "/"
-    },
-    {
-      name: "Docker",
-      link: "/"
-    },
-    {
-      name: "git",
-      link: "/git"
-    },
-    {
-      name: "etc",
-      link: "/"
-    }
-  ];
-
-
   return (
-    <div>
-      <Paragraph 
-        text={"Este é um reposítorio que tem o objetivo de centralizar, organizar e guardar minhas informações a respeito de diversos campos da tecnologia"} 
-      />
-       <ul className="list-decimal">
-          <List variant={"primary"} listTitle={"Programação"} hasListTitle={true} items={listProgramming} />
-            <li>Sistemas operacionais</li>
-            <ul>
-              <li>Linux</li>
-              <li>Windows</li>
-              <li>MACos</li>
-              <li>MACos</li>
-              <li>Terminais</li>
-              <li>etc</li>
-            </ul>
+    <main className="max-w-5xl mx-auto p-8">
+      <header className="mb-12 border-b border-slate-200 pb-6">
+        <Paragraph 
+          text="Central de anotações: Organização de conhecimentos sobre diversos campos da tecnologia." 
+        />
+      </header>
 
-            <li>Navegadores</li>
-            <ul>
-              <li>Estratégias</li>
-              <li>Filtros</li>
-              <li>Pesquisa</li>
-              <li>Dicas</li>
-              <li>Extensões</li>
-              <li>etc</li>
-            </ul>
-       </ul>
-    </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {navigationData.categories.map((category) => (
+          <div 
+            key={category.id} 
+            className="p-5 rounded-xl border border-slate-200 bg-white hover:shadow-md transition-shadow"
+          >
+            <List 
+              variant="primary" 
+              listTitle={category.title} 
+              items={category.items} 
+            />
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
