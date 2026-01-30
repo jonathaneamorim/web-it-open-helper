@@ -9,7 +9,6 @@ export function SectionListing(props: props){
     return(
        <section>
             <h2>{props.listTitle}</h2>
-            <List variant/>
        </section>
     );
 }
