@@ -1,53 +1,56 @@
-import ListPrimary from "./list.primary"
+import ListPrimary from "./list.primary";
 import ListSecondary from "./list.secondary";
-import ListSumary from "./list.sumary";
+import ListSummary from "./list.summary";
 
-type ListingItem = {
-    name?: string,
-    url?: string
+export type ListingItem = {
+    name: string;
+    url: string; 
+}
+
+type BaseListProps = {
+    items: ListingItem[];
 }
 
 type ListProps = 
-    |   {
-            variant: "primary",
-            hasListTitle?: boolean;
-            listTitle?: string;
-            items?: ListingItem[];
-        }
-    |   {
-            variant: "secondary",
-            hasListTitle?: boolean;
-            listTitle?: string;
-            items?: ListingItem[];
-        }
-    | {
-            variant: "sumary",
-            items: ListingItem[];
-    }
+    | (BaseListProps & {
+        variant: "primary";
+        listTitle?: string; 
+      })
+    | (BaseListProps & {
+        variant: "secondary";
+        hasListTitle?: boolean;
+        listTitle?: string;
+      })
+    | (BaseListProps & {
+        variant: "summary";
+      });
 
 export function List(props: ListProps) {
-    switch(props.variant) {
+    const { variant, items } = props;
+
+    switch(variant) {
         case "primary":
+            const primaryProps = props as Extract<ListProps, { variant: "primary" }>;
             return (
                 <ListPrimary 
-                    hasListTitle={props.hasListTitle}
-                    listTitle={props.listTitle}
-                    items={props.items}
+                    items={items}
+                    listTitle={primaryProps.listTitle}
                 />
             );
-        case "secondary": 
+
+        case "secondary":
+            const secondaryProps = props as Extract<ListProps, { variant: "secondary" }>;
             return (
                 <ListSecondary 
-                    hasListTitle={props.hasListTitle}
-                    listTitle={props.listTitle}
-                    items={props.items}
+                    items={items}
+                    listTitle={secondaryProps.listTitle}
                 />
             );
-        case "sumary":
-            return (
-                <ListSumary 
-                    items={props.items}
-                />
-            );
+
+        case "summary":
+            return <ListSummary items={items} />;
+            
+        default:
+            return null;
     }
 }
