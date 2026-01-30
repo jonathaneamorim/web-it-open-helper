@@ -1,0 +1,40 @@
+{
+    "mainNav": [
+        { "name": "Programação", "url": "/programming" },
+        { "name": "Sistemas Operacionais", "url": "/so" },
+        { "name": "Navegadores", "url": "/" },
+        { "name": "Softwares", "url": "/" }
+    ],
+  "categories": [
+    {
+      "id": "programming",
+      "title": "Programação",
+      "items": [
+        { "name": "Databases", "url": "/programming/databases" },
+        { "name": "Git", "url": "/programming/git" },
+        { "name": "Docker", "url": "/programming/docker" },
+        { "name": "HTML", "url": "/programming/html" },
+        { "name": "CSS", "url": "/programming/css" }
+      ]
+    },
+    {
+      "id": "os",
+      "title": "Sistemas Operacionais",
+      "items": [
+        { "name": "Linux", "url": "/os/linux" },
+        { "name": "Windows", "url": "/os/windows" },
+        { "name": "macOS", "url": "/os/macos" },
+        { "name": "Terminais", "url": "/os/terminals" }
+      ]
+    },
+    {
+      "id": "browsers",
+      "title": "Navegadores",
+      "items": [
+        { "name": "Estratégias", "url": "/browsers/strategies" },
+        { "name": "Filtros", "url": "/browsers/filters" },
+        { "name": "Dicas", "url": "/browsers/tips" }
+      ]
+    }
+  ]
+}
