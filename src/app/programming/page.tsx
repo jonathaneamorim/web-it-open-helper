@@ -1,34 +1,37 @@
-import { List } from "@/components/list/list";
-import { url } from "inspector";
+// src/app/programming/page.tsx
+import { List } from "@/components/list/list"; 
+import navigationData from "@/data/navigation.json";
+import { Title } from "@/components/title/title";
+import { Paragraph } from "@/components/paragraph/paragraph";
 
 export default function Programming() {
 
-    const listProgramming = [
-    { 
-      name: "Databases",
-      link: "/programming/databases"
-    },
-    {
-      name: "git",
-      link: "/programming/git"
-    },
-    {
-      name: "Docker",
-      link: "/programming/docker"
-    },
-    {
-      name: "Html",
-      link: "/programming/html"
-    }
-  ];
+  const programmingData = navigationData.categories.find(
+    (cat) => cat.id === "programming"
+  );
 
-    return(
-        <div>
-            <List 
-                variant="primary" 
-                hasListTitle={true} 
-                listTitle="Lista de Conteudos de programação"
-                items={listProgramming} />
-        </div>
+  if (!programmingData) {
+    return (
+      <div className="p-8 text-center text-slate-500">
+        Categoria não encontrada ou dados indisponíveis.
+      </div>
     );
+  }
+
+  return (
+    <main className="max-w-4xl mx-auto p-6 space-y-8">
+      <section>
+        <Title text={programmingData.title} />
+        <Paragraph text="Guias, documentação e anotações sobre desenvolvimento de software." />
+      </section>
+
+      <section>
+        <List 
+          variant="primary"
+          listTitle="Tópicos Disponíveis"
+          items={programmingData.items} 
+        />
+      </section>
+    </main>
+  );
 }
