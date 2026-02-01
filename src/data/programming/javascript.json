@@ -1,0 +1,311 @@
+{
+  "trackTitle": "Trilha de Javascript",
+  "levels": [
+    {
+      "id": "basic",
+      "title": "Conteúdo Básico",
+      "topics": [
+        {
+          "title": "Curso básico de Javascript - CodeAcademy",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Funções de impressão (console.log, alert)",
+                "Escopo de variáveis e constantes (let, var, const)",
+                "Estruturas condicionais (if, else)",
+                "Estruturas de repetição (for, while)",
+                "Declarar e operar as funções na linguagem",
+                "Arrow function (ECMA-5)",
+                "Comprovação"
+              ]
+            },
+            {
+              "type": "image",
+              "src": "/assets/codeAcademy.png",
+              "alt": "Certificado Code Academy"
+            }
+          ]
+        },
+        {
+          "title": "Curso de Javascript do Gustavo Guanabara",
+          "blocks": [
+            {
+              "type": "link",
+              "label": "Acessar Playlist no YouTube",
+              "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "medium",
+      "title": "Conteúdo Médio",
+      "topics": [
+        {
+          "title": "Requisições AJAX e Fetch API",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Criação de API REST fake com JSON Server e execução de requisições."
+            },
+            {
+              "type": "link",
+              "label": "Vídeo sobre API Rest com JSON Server",
+              "url": "https://www.fabricadecodigo.com/json-server/"
+            },
+            {
+              "type": "link",
+              "label": "Documentação Oficial Json-server",
+              "url": "https://www.npmjs.com/package/json-server"
+            },
+            {
+              "type": "subtitle",
+              "content": "Detalhamento FETCH"
+            },
+            {
+              "type": "paragraph",
+              "content": "O fetch é um método nativo do Javascript que permite realizar requisições HTTP sem a necessidade de bibliotecas externas. É assíncrono e retorna uma Promise."
+            },
+            {
+              "type": "paragraph",
+              "content": "Forma 1: Utilizando .then() (maneira simplificada):"
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "fetch('http://simulation.request.com/users', config)\n  .then(res => res.json())\n  .then(response => console.log(response))\n  .catch(err => console.log(err));"
+            },
+            {
+              "type": "paragraph",
+              "content": "Forma 2: Utilizando ASYNC/AWAIT (mais limpa e legível):"
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "async function getUser() {\n  try {\n    const response = await fetch('http://simulation.request.com/users', config);\n    // inserir exceções para tratamento de erro\n    const dados = await response.json();\n    console.log(dados);\n  } catch (err) {\n    console.log(err);\n  }\n}"
+            },
+            {
+              "type": "link",
+              "label": "Documentação: Fetch responses (MDN)",
+              "url": "https://developer.mozilla.org/pt-BR/docs/Web/API/Response"
+            },
+            {
+              "type": "link",
+              "label": "Exemplo prático local: api.js",
+              "url": "/tests/jsonserver/assets/js/services/api.js"
+            }
+          ]
+        },
+        {
+          "title": "Promises e Async/Await",
+          "blocks": [
+            {
+              "type": "subtitle",
+              "content": "Detalhamento ASYNC/AWAIT"
+            },
+            {
+              "type": "paragraph",
+              "content": "Utilizados para trabalhar com código assíncrono. Servem para não travar a execução do código enquanto aguarda o resultado de operações demoradas."
+            },
+            {
+              "type": "paragraph",
+              "content": "Exemplo Síncrono (Travante):"
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "// O código fica bloqueado esperando o usuário fechar o alert\nconsole.log('Inicio');\nalert('Meio');\nconsole.log('Fim');"
+            },
+            {
+              "type": "paragraph",
+              "content": "Exemplo Assíncrono (Não travante):"
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "console.log(\"Início\");\nsetTimeout(() => {\n  console.log(\"Fim\");\n}, 2000); // Espera 2s em background\n\nconsole.log(\"Meio\"); // Executa imediatamente"
+            },
+            {
+              "type": "link",
+              "label": "Exemplo prático local: api.js",
+              "url": "/tests/jsonserver/assets/js/services/api.js"
+            },
+            {
+              "type": "subtitle",
+              "content": "Detalhamento Promises"
+            },
+            {
+              "type": "paragraph",
+              "content": "Uma Promise é uma promessa de algo que vai acontecer no futuro. Possui 3 estados principais:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Pending (Em espera):** Estado inicial.",
+                "**Fulfilled (Cumprida):** Operação concluída com sucesso.",
+                "**Rejected (Rejeitada):** Operação falhou."
+              ]
+            },
+            {
+              "type": "link",
+              "label": "Exemplo prático local: promisse.js",
+              "url": "/tests/promisse/promisse.js"
+            }
+          ]
+        },
+        {
+          "title": "Manipulação DOM",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "O DOM (Document Object Model) permite acessar e manipular o HTML via JS. Objetos HTML possuem propriedades como innerHTML, style, addEventListener, etc."
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "const element = document.querySelector('#elementSelector');\nelement.innerHTML += 'Hello World';\nelement.style.color = 'red';"
+            },
+            {
+              "type": "paragraph",
+              "content": "Manipulação de eventos (clique, mouse, teclado):"
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "const button = document.querySelector('.seletor');\nbutton.onclick = () => {\n  console.log('Pressionado');\n}"
+            }
+          ]
+        },
+        {
+          "title": "Event Propagation / Bubbling",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "O Bubbling é a propagação de eventos do elemento filho para os pais. Permite adicionar um único ouvinte em um container para gerenciar vários filhos."
+            },
+            {
+              "type": "code",
+              "language": "html",
+              "content": "<body>\n  <ul id=\"list\">\n    <li> Item 1 </li>\n    <li class=\"item2\"> Item 2 </li>\n    <li> Item 3 </li>\n  </ul>\n</body>\n\n<script>\n  const list = document.querySelector('#list');\n  list.addEventListener('click', (event) => {\n    // event.target acessa quem foi clicado\n    if (event.target.matches('li.item2')) {\n      console.log('O item clicado foi o item 2');\n    }\n  });\n</script>"
+            },
+            {
+              "type": "paragraph",
+              "content": "Capturing (Oposto do Bubbling - desce da raiz até o elemento):"
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "list.addEventListener('click', (event) => {\n  console.log('Evento capturado no UL');\n}, true); // 'true' ativa o capturing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "title": "Conteúdo Avançado",
+      "topics": [
+        {
+          "title": "Node.js e NPM",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Node.js é o ambiente de execução JS server-side. O arquivo principal é o `package.json`."
+            },
+            {
+              "type": "subtitle",
+              "content": "NPM (Node Package Manager)"
+            },
+            {
+              "type": "paragraph",
+              "content": "Gerenciador de pacotes padrão. Cria a pasta `node_modules`."
+            },
+            {
+              "type": "list",
+              "items": [
+                "`npm init`: Inicia um projeto (cria package.json). Use `-y` para padrão.",
+                "`npm install`: Instala dependências.",
+                "`npm run start`: Roda o script definido na chave start.",
+                "`npm run dev`: Geralmente inicia servidor com hot-reload."
+              ]
+            },
+            {
+              "type": "link",
+              "label": "Documentação Oficial NPM",
+              "url": "https://docs.npmjs.com/"
+            }
+          ]
+        },
+        {
+          "title": "Automatizadores (Gulp)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Ferramentas para automatizar minificação, compilação (SCSS), otimização de imagens, etc. Gulp é baseado em streams."
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "// Instalação\nnpm install --global gulp-cli\nnpm install --save-dev gulp\n\n// gulpfile.js\nconst gulp = require('gulp');\ngulp.task('hello', (done) => {\n  console.log('Hello World');\n  done();\n});"
+            },
+            {
+              "type": "paragraph",
+              "content": "Para rodar: `gulp hello`"
+            },
+            {
+              "type": "link",
+              "label": "Uso prático do GULP (Local)",
+              "url": "/tests/node_gulp/"
+            }
+          ]
+        },
+        {
+          "title": "Babel.js",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "O Babel é um Transpilador (não compilador) que converte JS moderno (ES6+) para versões antigas compatíveis com navegadores legados."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Sintaxe de transformação:** Converte código novo.",
+                "**Polyfill:** Adiciona recursos que não existem no navegador antigo."
+              ]
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "npm install --save-dev @babel/core @babel/cli @babel/preset-env core-js"
+            },
+            {
+              "type": "paragraph",
+              "content": "Configuração (`babel.config.js`):"
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "module.exports = {\n  presets: [\n    [\n      '@babel/preset-env',\n      {\n        targets: '> 0.25%, not dead',\n        useBuiltIns: 'usage',\n        corejs: 3,\n      },\n    ],\n  ],\n};"
+            },
+            {
+              "type": "paragraph",
+              "content": "No package.json: `\"build\": \"babel src --out-dir dist\"`"
+            },
+            {
+              "type": "link",
+              "label": "Artigo: O que é Babel?",
+              "url": "https://coodesh.com/blog/dicionario/o-que-e-babel/"
+            },
+            {
+              "type": "link",
+              "label": "Uso prático do Babel (Local)",
+              "url": "/tests/node_babel/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
