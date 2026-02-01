@@ -1,0 +1,170 @@
+{
+  "trackTitle": "Dominando o Markdown",
+  "levels": [
+    {
+      "id": "intro",
+      "title": "Introdução e Formatação",
+      "topics": [
+        {
+          "title": "O que é Markdown?",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Markdown é uma linguagem de marcação leve. Diferente do Word, onde você clica em botões para formatar, no Markdown você usa caracteres especiais para dizer ao texto como ele deve se comportar."
+            },
+            {
+              "type": "paragraph",
+              "content": "Basicamente, é escrever texto simples que vira HTML bonitão no final. É o padrão da indústria para documentação técnica."
+            },
+            {
+              "type": "image",
+              "src": "/assets/markdown-flow.png",
+              "alt": "Fluxo: Texto Puro -> Processador Markdown -> HTML Renderizado"
+            }
+          ]
+        },
+        {
+          "title": "Estilizando Texto",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Para dar ênfase ao texto, usamos asteriscos ou underlines. Simples assim:"
+            },
+            {
+              "type": "code",
+              "language": "markdown",
+              "content": "**Negrito**: Use dois asteriscos.\n*Itálico*: Use um asterisco.\n~~Tachado~~: Use dois tils (tildes).\n__Sublinhado__: Markdown puro não tem sublinhado nativo (confunde com link), mas alguns leitores aceitam."
+            },
+            {
+              "type": "subtitle",
+              "content": "Resultado Visual"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Texto em Negrito**",
+                "*Texto em Itálico*",
+                "~~Texto Riscado/Tachado~~"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "structure",
+      "title": "Estrutura do Documento",
+      "topics": [
+        {
+          "title": "Títulos e Cabeçalhos",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "A hierarquia é definida pela quantidade de hashtags (`#`). Quanto menos hashtags, maior a fonte."
+            },
+            {
+              "type": "code",
+              "language": "markdown",
+              "content": "# Título H1 (Principal)\n## Título H2 (Secção)\n### Título H3 (Sub-secção)\n#### Título H4..."
+            },
+            {
+              "type": "paragraph",
+              "content": "Dica de ouro: Nunca pule níveis (não vá do H1 direto pro H3). Isso ajuda leitores de tela e SEO."
+            }
+          ]
+        },
+        {
+          "title": "Listas e Organização",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Criar listas é intuitivo. Use hifens para listas não ordenadas e números para as ordenadas."
+            },
+            {
+              "type": "code",
+              "language": "markdown",
+              "content": "- Item 1\n- Item 2\n  - Subitem (basta indentar)\n\n1. Primeiro passo\n2. Segundo passo"
+            },
+            {
+              "type": "paragraph",
+              "content": "Checklists (muito usadas em PRs do GitHub):"
+            },
+            {
+              "type": "code",
+              "language": "markdown",
+              "content": "- [x] Tarefa concluída\n- [ ] Tarefa pendente"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev-features",
+      "title": "Recursos para Desenvolvedores",
+      "topics": [
+        {
+          "title": "Inserindo Códigos",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Essa é a parte que a gente mais usa. Existem duas formas: Inline (no meio do texto) e em Bloco."
+            },
+            {
+              "type": "subtitle",
+              "content": "Código Inline"
+            },
+            {
+              "type": "paragraph",
+              "content": "Use crases simples (` `) para destacar comandos, variáveis ou arquivos."
+            },
+            {
+              "type": "code",
+              "language": "markdown",
+              "content": "Para instalar, rode o comando `npm install` no seu terminal."
+            },
+            {
+              "type": "subtitle",
+              "content": "Bloco de Código"
+            },
+            {
+              "type": "paragraph",
+              "content": "Use três crases (```) e especifique a linguagem para ter o syntax highlighting colorido."
+            },
+            {
+              "type": "code",
+              "language": "markdown",
+              "content": "```javascript\nconst hello = \"Mundo\";\nconsole.log(hello);\n```"
+            }
+          ]
+        },
+        {
+          "title": "Links, Imagens e Citações",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "A sintaxe de link e imagem é quase igual, a diferença é um ponto de exclamação."
+            },
+            {
+              "type": "code",
+              "language": "markdown",
+              "content": "[Texto do Link](https://google.com)\n\n![Texto Alternativo da Imagem](/caminho/da/foto.png)"
+            },
+            {
+              "type": "subtitle",
+              "content": "Blockquotes (Citações)"
+            },
+            {
+              "type": "paragraph",
+              "content": "Use o sinal de maior `>` para destacar avisos ou citações."
+            },
+            {
+              "type": "code",
+              "language": "markdown",
+              "content": "> Importante: Sempre faça backup antes de rodar esse comando."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
