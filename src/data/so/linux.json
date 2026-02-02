@@ -1,0 +1,230 @@
+{
+  "trackTitle": "Linux (Fedora/Geral) - Guia de Comandos",
+  "category": "Sistemas Operacionais",
+  "description": "Referência completa para terminal: manipulação de arquivos, gerenciamento de pacotes (DNF), permissões, redes e configuração de ambiente.",
+  "levels": [
+    {
+      "id": "basics",
+      "title": "Fundamentos e Arquivos",
+      "topics": [
+        {
+          "title": "Navegação e Manipulação (Essencial)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Comandos primários para se mover e gerenciar arquivos no terminal."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**ls -la** : Lista arquivos (incluindo ocultos) e detalhes.",
+                "**cd [pasta]** : Entra em uma pasta. Use `cd ..` para voltar.",
+                "**pwd** : Mostra o caminho absoluto da pasta atual.",
+                "**mkdir [nome]** : Cria uma nova pasta.",
+                "**cp [origem] [destino]** : Copia arquivos (use `-r` para pastas).",
+                "**mv [origem] [destino]** : Move ou renomeia arquivos.",
+                "**touch [nome.ext]** : Cria um arquivo vazio.",
+                "**cat [nome]** : Lê e imprime o conteúdo de um arquivo no terminal.",
+                "**rm -rf [pasta]** : Exclui pasta e subpastas sem perguntar (Cuidado!)."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Permissões e Execução",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Gerenciamento de donos (chown) e modos de acesso (chmod)."
+            },
+            {
+              "type": "subtitle",
+              "content": "Executando arquivos .run / .sh"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Recomendado**: `chmod +x arquivo.run` seguido de `sudo ./arquivo.run`.",
+                "**Permissão Total (Bruta)**: `sudo chmod 777 [arquivo.run]`."
+              ]
+            },
+            {
+              "type": "subtitle",
+              "content": "Permissões de Sistema"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**sudo chmod 777 [pasta] -R** : Dá permissão total recursiva (pasta e filhos).",
+                "**sudo chown -R $USER:$USER [pasta]** : Torna o usuário atual o dono da pasta e subarquivos.",
+                "**sudo su** : Acessa o terminal como Root (Superusuário)."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Compactação e Extração",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**tar -xzf [arquivo.tar.gz]** : Extrai arquivos Gzip.",
+                "**tar -xvf [arquivo.tar.xz]** : Extrai arquivos XZ."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "system",
+      "title": "Sistema e Pacotes (Fedora)",
+      "topics": [
+        {
+          "title": "Gerenciamento de Pacotes (DNF/RPM)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Comandos específicos para distribuições baseadas em Red Hat/Fedora."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**sudo dnf install [app]** : Instala um pacote do repositório.",
+                "**sudo dnf upgrade --refresh** : Atualiza todo o sistema e recarrega repositórios.",
+                "**sudo rpm -i [arquivo.rpm]** : Instala um pacote .rpm baixado localmente.",
+                "**rpm -qa | grep [nome]** : Pesquisa se um pacote RPM está instalado.",
+                "**rpm -e [nome]** : Desinstala um pacote RPM."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Informações e Monitoramento",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**uname -srm** : Versão do Kernel e arquitetura.",
+                "**cat /etc/os-release** : Informações completas da distribuição.",
+                "**htop** : Gerenciador de tarefas interativo (monitora CPU/RAM).",
+                "**df -h** : Mostra espaço livre em disco.",
+                "**free -h** : Mostra uso de memória RAM."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Ferramentas Específicas (Busca e Execução)",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**grep -r \"texto\" [dir]** : Pesquisa um texto dentro de todos os arquivos de um diretório.",
+                "**java -jar [arquivo.jar]** : Executa aplicações Java.",
+                "**XAMPP** : Rodar `sudo ./manager-linux-x64.run` dentro de `/opt/lampp/`."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "title": "Redes, Servidores e Dev",
+      "topics": [
+        {
+          "title": "Redes e SSH",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**wget [link]** : Baixa arquivos via terminal.",
+                "**ssh-keygen -t ed25519 -C \"email\"** : Gera chave SSH segura.",
+                "**eval \"$(ssh-agent -s)\"** : Inicia o agente SSH.",
+                "**ssh-add ~/.ssh/id_ed25519** : Adiciona a chave ao agente."
+              ]
+            },
+            {
+              "type": "subtitle",
+              "content": "Servidor SSH (Habilitar acesso remoto)"
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install openssh-server\nsudo systemctl enable sshd\nsudo systemctl start sshd\nsudo systemctl status sshd\nsudo ss -lt # Verifica portas ouvindo"
+            }
+          ]
+        },
+        {
+          "title": "Docker e Virtualização",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**sudo systemctl start docker** : Inicia o serviço Docker.",
+                "**sudo systemctl enable docker** : Habilita o Docker na inicialização do sistema."
+              ]
+            },
+            {
+              "type": "subtitle",
+              "content": "KVM (Nested Virtualization)"
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo modprobe -r kvm_intel\nsudo modprobe kvm_intel nested=1"
+            }
+          ]
+        },
+        {
+          "title": "Editor VIM (Cheat Sheet)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Comandos de sobrevivência no editor de texto do terminal."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**vim [arquivo]** : Abre o arquivo.",
+                "**i** : Entra no modo de INSERÇÃO (para digitar).",
+                "**ESC** : Sai do modo de inserção.",
+                "**:wq** : Salva e Sair (Write & Quit).",
+                "**:q!** : Sai SEM salvar (forçado)."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Atalhos de Desktop (.desktop)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Crie lançadores para aplicativos manuais. Salve em `~/.local/share/applications/[nome].desktop`."
+            },
+            {
+              "type": "code",
+              "language": "ini",
+              "content": "[Desktop Entry]\nVersion=1.0\nType=Application\nName=Nome_do_App\nComment=Comentario\nExec=/home/usuario/caminho/bin/executavel.sh\nIcon=/home/usuario/caminho/bin/icone.png\nCategories=Development;IDE;\nTerminal=false\nStartupWMClass=nome-da-janela\nStartupNotify=true"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "title": "Fedora Magazine (Dicas)",
+      "url": "https://fedoramagazine.org/"
+    },
+    {
+      "title": "RPM Fusion (Repos)",
+      "url": "https://rpmfusion.org/"
+    },
+    {
+      "title": "Flathub (Apps)",
+      "url": "https://flathub.org/"
+    }
+  ]
+}
