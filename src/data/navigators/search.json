@@ -1,0 +1,84 @@
+{
+  "title": "Google Hacking & Browser Power",
+  "description": "Domine a arte de pesquisar. Cheatsheet de operadores de busca, atalhos de navegador e ferramentas de debug.",
+  "levels": [
+    {
+      "id": "operators",
+      "title": "Operadores de Pesquisa (Google Dorks)",
+      "topics": [
+        {
+          "title": "Filtragem de Resultados",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Use estes operadores para filtrar o ruído e encontrar exatamente o que precisa."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**\"termo exato\"** : Pesquisa a frase exata. Ex: `\"erro 404 nextjs\"`.",
+                "**-termo** : Exclui resultados com essa palavra. Ex: `receitas -açúcar`.",
+                "**OR** : Pesquisa X ou Y. Ex: `react OR vue`.",
+                "*** (Asterisco)** : Curinga. Ex: `como * um bolo` (fazer, comer, comprar).",
+                "**.. (Dois pontos)** : Intervalo numérico. Ex: `notebook R$2000..R$4000`."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Contexto e Arquivos",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**site:url** : Pesquisa apenas dentro de um site específico. Ex: `flexbox site:stackoverflow.com`.",
+                "**filetype:ext** : Busca tipos de arquivo. Ex: `clean code filetype:pdf`.",
+                "**intitle:termo** : O termo deve aparecer no título da página.",
+                "**inurl:termo** : O termo deve aparecer na URL da página."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "browser",
+      "title": "Produtividade no Navegador",
+      "topics": [
+        {
+          "title": "Atalhos de Teclado (Ninja Mode)",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Ctrl + Shift + T** : Reabre a última aba fechada (Salva vidas!).",
+                "**Ctrl + L** : Foca na barra de endereço.",
+                "**Ctrl + F5** : Hard Refresh (Limpa cache e recarrega).",
+                "**Ctrl + D** : Adiciona aos favoritos.",
+                "**Ctrl + Shift + N** : Nova janela anônima."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DevTools (F12)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Ferramentas essenciais para desenvolvimento web."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Elements**: Edite HTML/CSS em tempo real.",
+                "**Console**: `console.table()` exibe dados em tabela.",
+                "**Network**: Use o filtro 'Fetch/XHR' para monitorar APIs.",
+                "**Application**: Visualize LocalStorage, Cookies e Cache."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
