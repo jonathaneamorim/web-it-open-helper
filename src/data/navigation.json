@@ -1,39 +1,43 @@
 {
-    "mainNav": [
-        { "name": "Programação", "url": "/programming" },
-        { "name": "Sistemas Operacionais", "url": "/so" },
-        { "name": "Navegadores", "url": "/" },
-        { "name": "Softwares", "url": "/" }
-    ],
+  "mainNav": [
+    { "name": "Programação", "url": "/#Programação" },
+    { "name": "Sistemas Operacionais", "url": "/#Sistemas Operacionais" },
+    { "name": "Navegadores", "url": "/#Navegadores" },
+    { "name": "Softwares", "url": "/#Softwares" }
+  ],
   "categories": [
     {
       "id": "programming",
       "title": "Programação",
       "items": [
-        { "name": "Databases", "url": "/programming/databases" },
-        { "name": "Git", "url": "/programming/git" },
-        { "name": "Docker", "url": "/programming/docker" },
-        { "name": "HTML", "url": "/programming/html" },
-        { "name": "CSS", "url": "/programming/css" }
+        { "name": "Databases", "url": "/wiki/databases" },
+        { "name": "Git", "url": "/wiki/git" },
+        { "name": "Docker", "url": "/wiki/docker" },
+        { "name": "HTML", "url": "/wiki/html" },
+        { "name": "CSS", "url": "/wiki/css" },
+        { "name": "JavaScript", "url": "/wiki/javascript" },
+        { "name": "Markdown", "url": "/wiki/markdown" }
       ]
     },
     {
       "id": "os",
       "title": "Sistemas Operacionais",
       "items": [
-        { "name": "Linux", "url": "/os/linux" },
-        { "name": "Windows", "url": "/os/windows" },
-        { "name": "macOS", "url": "/os/macos" },
-        { "name": "Terminais", "url": "/os/terminals" }
+        { "name": "Linux", "url": "/wiki/linux" }
       ]
     },
     {
       "id": "browsers",
       "title": "Navegadores",
       "items": [
-        { "name": "Estratégias", "url": "/browsers/strategies" },
-        { "name": "Filtros", "url": "/browsers/filters" },
-        { "name": "Dicas", "url": "/browsers/tips" }
+        { "name": "Pesquisa", "url": "/wiki/browsers" }
+      ]
+    },
+    {
+      "id": "softwares",
+      "title": "Softwares",
+      "items": [
+        { "name": "Desktop Linux", "url": "/wiki/desktop-linux" }
       ]
     }
   ]
