@@ -1,5 +1,6 @@
 {
   "trackTitle": "Docker - Guia de Containers",
+  "category": "Programação",
   "description": "Referência rápida para gerenciamento de containers, imagens, volumes e orquestração com Docker Compose.",
   "levels": [
     {
