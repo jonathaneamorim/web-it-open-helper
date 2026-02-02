@@ -1,0 +1,314 @@
+{
+  "trackTitle": "Softwares Desktop Linux Essenciais",
+  "category": "Softwares",
+  "description": "Guia de instalação e uso das principais ferramentas de desenvolvimento, banco de dados e utilitários de sistema para Linux.",
+  "levels": [
+    {
+      "id": "dev-ides",
+      "title": "IDEs e Editores de Código",
+      "topics": [
+        {
+          "title": "JetBrains (IntelliJ, PHPStorm, Android Studio)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "As IDEs mais poderosas do mercado. IntelliJ para Java, PHPStorm para PHP e Android Studio (baseado no IntelliJ) para Mobile."
+            },
+            {
+              "type": "image",
+              "src": "/assets/jetbrains-toolbox.png",
+              "alt": "Interface do JetBrains Toolbox"
+            },
+            {
+              "type": "subtitle",
+              "content": "Como Instalar (Recomendado)"
+            },
+            {
+              "type": "paragraph",
+              "content": "A melhor forma é via **JetBrains Toolbox**, que gerencia atualizações e versões automaticamente."
+            },
+            {
+              "type": "list",
+              "items": [
+                "1. Baixe o `.tar.gz` no site oficial.",
+                "2. Extraia e execute o arquivo `jetbrains-toolbox`.",
+                "3. Escolha a IDE (Community ou Ultimate) e clique em Install."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": "Alternativa via Flatpak:"
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "flatpak install flathub com.google.AndroidStudio\nflatpak install flathub com.jetbrains.IntelliJ-IDEA-Community\nflatpak install flathub com.jetbrains.PhpStorm"
+            }
+          ]
+        },
+        {
+          "title": "Eclipse",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "IDE clássica e robusta para desenvolvimento Java Enterprise e C++."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install eclipse\n# Ou baixe o instalador no site oficial"
+            }
+          ]
+        },
+        {
+          "title": "Code::Blocks",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "IDE leve focada em desenvolvimento C e C++. Muito usada em ambientes acadêmicos."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install codeblocks\n# Para instalar compiladores extras:\nsudo dnf groupinstall \"Development Tools\""
+            }
+          ]
+        },
+        {
+          "title": "Editores Leves (Notepad++ / Gedit)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "**Gedit:** Editor nativo do GNOME, simples e rápido."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install gedit"
+            },
+            {
+              "type": "paragraph",
+              "content": "**Notepad++:** Clássico do Windows. No Linux, roda via Snap (Wine embutido)."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo snap install notepad-plus-plus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "title": "Banco de Dados e Backend",
+      "topics": [
+        {
+          "title": "DBeaver (Universal)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "A melhor ferramenta GUI universal. Conecta com MySQL, PostgreSQL, SQLite, Oracle e tudo mais."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "flatpak install flathub io.dbeaver.DBeaverCommunity"
+            }
+          ]
+        },
+        {
+          "title": "MySQL Workbench & PgAdmin",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Ferramentas oficiais e específicas para seus respectivos bancos."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**MySQL Workbench**: Modelagem visual e administração MySQL.",
+                "**PgAdmin 4**: Administração avançada para PostgreSQL."
+              ]
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "# MySQL Workbench\nflatpak install flathub com.oracle.mysql.workbench\n\n# PgAdmin4 (Modo Desktop)\nsudo dnf install pgadmin4-desktop"
+            }
+          ]
+        },
+        {
+          "title": "XAMPP (Web Server Stack)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Pacote que inclui Apache, MariaDB, PHP e Perl. Essencial para dev PHP local."
+            },
+            {
+              "type": "list",
+              "items": [
+                "1. Baixe o instalador `.run` no site do Apache Friends.",
+                "2. Dê permissão: `chmod +x xampp-linux-x64-installer.run`.",
+                "3. Instale: `sudo ./xampp-linux-x64-installer.run`."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": "Para rodar a interface gráfica:"
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "cd /opt/lampp\nsudo ./manager-linux-x64.run"
+            }
+          ]
+        },
+        {
+          "title": "Postman",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Plataforma completa para desenvolvimento e teste de APIs (REST, GraphQL, etc)."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "flatpak install flathub com.getpostman.Postman"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "system-utils",
+      "title": "Sistema e Utilitários",
+      "topics": [
+        {
+          "title": "VirtualBox",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Software de virtualização para rodar outros sistemas operacionais dentro do Linux."
+            },
+            {
+              "type": "image",
+              "src": "/assets/virtualbox.png",
+              "alt": "VirtualBox rodando Windows no Linux"
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install VirtualBox\n# Instale também o Extension Pack pelo site oficial para suporte a USB"
+            }
+          ]
+        },
+        {
+          "title": "GParted & Balena Etcher",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "**GParted:** Gerenciador de partições (redimensionar, formatar, criar)."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install gparted"
+            },
+            {
+              "type": "paragraph",
+              "content": "**Balena Etcher:** Ferramenta segura para gravar imagens ISO em Pen Drives (Bootável)."
+            },
+            {
+              "type": "paragraph",
+              "content": "Geralmente distribuído como **AppImage**. Baixe, dê permissão de execução e clique duas vezes."
+            }
+          ]
+        },
+        {
+          "title": "Grub Customizer",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Interface gráfica para configurar o menu de boot (GRUB). Útil para quem faz Dual Boot."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install grub-customizer"
+            }
+          ]
+        },
+        {
+          "title": "FileZilla",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Cliente FTP/SFTP para transferência de arquivos para servidores remotos."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install filezilla"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily-design",
+      "title": "Design e Dia a Dia",
+      "topics": [
+        {
+          "title": "Modelagem (BrModelo e Draw.io)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "**Draw.io:** Criador de diagramas de fluxo e arquitetura."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "flatpak install flathub com.jgraph.drawio.desktop"
+            },
+            {
+              "type": "paragraph",
+              "content": "**BrModelo:** Ferramenta clássica para modelagem de banco de dados (DER). É um executável Java."
+            },
+            {
+              "type": "list",
+              "items": [
+                "1. Certifique-se de ter o Java instalado (`sudo dnf install java`).",
+                "2. Baixe o `.jar` do BrModelo.",
+                "3. Execute: `java -jar BrModelo.jar`."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Navegação e Mídia (Brave e Spotify)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "**Brave Browser:** Navegador focado em privacidade e bloqueio de anúncios nativo."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install brave-browser"
+            },
+            {
+              "type": "paragraph",
+              "content": "**Spotify:** Streaming de música."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "flatpak install flathub com.spotify.Client"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
