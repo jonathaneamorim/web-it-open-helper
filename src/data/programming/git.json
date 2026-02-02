@@ -1,168 +1,162 @@
 {
-  "title": "Git & GitHub - Controle de Versão",
-  "description": "O guia definitivo para versionamento de código. Do 'init' ao 'rebase', entenda como trabalhar em equipe sem quebrar a produção.",
-  "sections": [
+  "trackTitle": "Git & GitHub - Controle de Versão",
+  "description": "O guia definitivo para versionamento. Do 'init' ao 'rebase', entenda como trabalhar em equipe sem quebrar a produção.",
+  "levels": [
     {
-      "id": "conceitos-basicos",
-      "title": "Conceitos e Estados",
-      "description": "Entenda o ciclo de vida dos arquivos. O Git opera em três estados principais antes de salvar definitivamente no histórico.",
-      "items": [
+      "id": "basics",
+      "title": "Fundamentos e Ciclo de Vida",
+      "topics": [
         {
-          "code": "Modified",
-          "description": "Arquivo alterado mas ainda não preparado. Está apenas no seu diretório de trabalho."
+          "title": "Os 3 Estados do Git",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Para dominar o Git, você precisa entender onde seus arquivos estão antes de serem salvos."
+            },
+            {
+              "type": "image",
+              "src": "/assets/git-states.png",
+              "alt": "Diagrama: Working Directory -> Staging Area -> Repository"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Modified** : Arquivo alterado no seu PC, mas o Git ainda não \"anotou\".",
+                "**Staged** : Arquivo preparado (com `git add`) para entrar no próximo pacote.",
+                "**Committed** : Arquivo salvo no banco de dados local do Git."
+              ]
+            }
+          ]
         },
         {
-          "code": "Staged",
-          "description": "Arquivo marcado (git add) para ir no próximo commit. Está na área de preparação."
-        },
-        {
-          "code": "Committed",
-          "description": "Alterações gravadas no banco de dados do Git localmente."
+          "title": "Start - Comandos Iniciais",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**git init** : Cria um repositório .git vazio na pasta atual.",
+                "**git clone <url>** : Baixa um projeto completo (HTTPS ou SSH).",
+                "**git status** : O comando mais importante. Mostra como estão seus arquivos agora.",
+                "**git log --oneline** : Mostra o histórico resumido.",
+                "**git diff** : Mostra o que você mudou no código mas ainda não deu `add`."
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "id": "comandos-essenciais",
-      "title": "Comandos Essenciais (Start)",
-      "description": "O feijão com arroz para começar qualquer projeto.",
-      "items": [
+      "id": "workflow",
+      "title": "Fluxo de Trabalho Diário",
+      "topics": [
         {
-          "code": "git init",
-          "description": "Inicializa um repositório vazio na pasta atual."
+          "title": "Manipulando Arquivos",
+          "blocks": [
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "git add . \n# Adiciona tudo para Stage\n\ngit commit -m \"feat: nova funcionalidade\"\n# Salva o pacote"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**git commit --amend** : Esqueceu um arquivo? Adiciona ao ÚLTIMO commit sem criar um novo histórico.",
+                "**git restore --staged <arq>** : Tira do Stage (desfaz o `git add`).",
+                "**git restore <arq>** : Desfaz as alterações no arquivo (perigoso, apaga seu trabalho não salvo)."
+              ]
+            }
+          ]
         },
         {
-          "code": "git clone <url>",
-          "description": "Baixa um repositório remoto completo (via HTTPS ou SSH)."
-        },
-        {
-          "code": "git status",
-          "description": "Mostra o estado dos arquivos (o que tá modificado, o que tá staged)."
-        },
-        {
-          "code": "git log --oneline",
-          "description": "Mostra o histórico de commits de forma resumida."
-        },
-        {
-          "code": "git diff",
-          "description": "Mostra as diferenças linha a linha do que foi alterado e ainda não foi 'staged'."
-        }
-      ]
-    },
-    {
-      "id": "manipulacao",
-      "title": "Manipulando Arquivos e Commits",
-      "items": [
-        {
-          "code": "git add .",
-          "description": "Adiciona todos os arquivos modificados para a área de Staging."
-        },
-        {
-          "code": "git commit -m \"mensagem\"",
-          "description": "Grava o snapshot dos arquivos que estão em Staging."
-        },
-        {
-          "code": "git commit --amend",
-          "description": "Adiciona arquivos esquecidos ao ÚLTIMO commit (sem criar um novo hash/histórico visível)."
-        },
-        {
-          "code": "git restore --staged <arquivo>",
-          "description": "Tira um arquivo da área de Staging (desfaz o git add)."
-        },
-        {
-          "code": "git restore <arquivo>",
-          "description": "Desacarta as alterações locais do arquivo (volta ao estado do último commit)."
-        }
-      ]
-    },
-    {
-      "id": "remoto",
-      "title": "Trabalhando com Remoto (GitHub/GitLab)",
-      "items": [
-        {
-          "code": "git remote add origin <url>",
-          "description": "Vincula seu repositório local a um repositório na nuvem."
-        },
-        {
-          "code": "git pull",
-          "description": "Puxa as atualizações da nuvem e mescla com seu código local."
-        },
-        {
-          "code": "git push -u origin <branch>",
-          "description": "Envia seus commits locais para a nuvem."
+          "title": "Sincronizando com Remoto (GitHub)",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**git remote add origin <url>** : Conecta sua pasta local ao GitHub.",
+                "**git pull** : Baixa alterações da nuvem e mescla com as suas.",
+                "**git push -u origin <branch>** : Envia seus commits para a nuvem."
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "id": "branching",
-      "title": "Branches e Merges",
-      "description": "Branches permitem trabalhar isolado sem quebrar o código principal (main).",
-      "items": [
+      "title": "Ramificação (Branching)",
+      "topics": [
         {
-          "code": "git checkout -b <nome>",
-          "description": "Cria uma nova branch e já muda para ela imediatamente."
+          "title": "Branches e Merges",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Branches permitem trabalhar isolado sem quebrar o código principal."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**git checkout -b <nome>** : Cria e entra numa nova branch.",
+                "**git checkout <nome>** : Troca de branch.",
+                "**git merge <branch>** : Funde a branch alvo na sua atual."
+              ]
+            }
+          ]
         },
         {
-          "code": "git checkout <nome>",
-          "description": "Muda para uma branch existente."
-        },
-        {
-          "code": "git merge <branch>",
-          "description": "Funde a branch especificada na branch atual onde você está."
+          "title": "Rebase vs Merge",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "O Rebase reescreve a história para deixá-la linear. Use com cuidado em branches compartilhadas!"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**git rebase <base>** : Move seus commits para a ponta da branch base.",
+                "**git rebase -i HEAD~N** : Interativo. Permite editar, juntar ou apagar commits antigos."
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "id": "rebase",
-      "title": "Git Rebase vs Merge",
-      "description": "O Rebase reescreve a história para deixá-la linear. Use com cuidado em branches compartilhadas!",
-      "items": [
+      "id": "advanced",
+      "title": "Avançado e Dicas",
+      "topics": [
         {
-          "code": "git rebase <branch_base>",
-          "description": "Move seus commits para a frente da branch base, como se você tivesse começado a trabalhar nela agora."
+          "title": "Stash e Reset",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Ferramentas para desfazer erros ou pausar o trabalho."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**git stash** : Guarda mudanças temporariamente num 'bolso' para limpar a branch.",
+                "**git stash pop** : Devolve as mudanças guardadas.",
+                "**git reset --soft HEAD~1** : Desfaz o commit, mas mantém arquivos prontos para commitar (Stage).",
+                "**git reset --mixed HEAD~1** : (Padrão) Desfaz commit e stage, mantém arquivos modificados.",
+                "**git reset --hard HEAD~1** : (PERIGO) Apaga tudo. Volta o código exatamente como estava antes."
+              ]
+            }
+          ]
         },
         {
-          "code": "git rebase -i HEAD~<n>",
-          "description": "Rebase Interativo. Permite editar, juntar (squash) ou apagar commits passados."
-        }
-      ]
-    },
-    {
-      "id": "avancado",
-      "title": "Avançado: Reset & Stash",
-      "items": [
-        {
-          "code": "git stash",
-          "description": "Guarda suas mudanças num 'bolso' temporário para você trocar de branch sem commitar."
-        },
-        {
-          "code": "git stash pop",
-          "description": "Devolve as mudanças guardadas para o seu código."
-        },
-        {
-          "code": "git reset --soft HEAD~1",
-          "description": "Desfaz o último commit, mas mantem os arquivos prontos para commitar de novo (Staged)."
-        },
-        {
-          "code": "git reset --mixed HEAD~1",
-          "description": "(Padrão) Desfaz o commit e tira de stage, mas mantem as alterações no arquivo."
-        },
-        {
-          "code": "git reset --hard HEAD~1",
-          "description": "PERIGO: Apaga tudo. Desfaz o commit e descarta qualquer alteração nos arquivos."
-        }
-      ]
-    },
-    {
-      "id": "dicas",
-      "title": "Dicas e Curiosidades",
-      "items": [
-        {
-          "code": "git config --global alias.adog \"log --all --decorate --oneline --graph\"",
-          "description": "Cria o alias 'git adog' para ver o histórico bonitão em árvore."
-        },
-        {
-          "code": "Resolvendo Conflitos",
-          "description": "Se der conflito (Automatic merge failed), edite os arquivos, remova os marcadores <<<< ==== >>>> e dê git add + git commit."
+          "title": "O Lendário Git ADOG",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Um alias para visualizar a árvore de commits colorida no terminal."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "git config --global alias.adog \"log --all --decorate --oneline --graph\""
+            }
+          ]
         }
       ]
     }
@@ -177,7 +171,7 @@
       "url": "https://learngitbranching.js.org/"
     },
     {
-      "title": "Oh My Zsh (Terminal Top)",
+      "title": "Oh My Zsh",
       "url": "https://ohmyz.sh/"
     }
   ]

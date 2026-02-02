@@ -1,5 +1,6 @@
 {
   "trackTitle": "Trilha de Javascript",
+  "description": "Do básico ao avançado: Domine a linguagem da web, assincronismo e o ecossistema Node.js.",
   "levels": [
     {
       "id": "basic",

@@ -1,94 +1,129 @@
 {
-  "title": "Docker - Guia de Containers",
+  "trackTitle": "Docker - Guia de Containers",
   "description": "Referência rápida para gerenciamento de containers, imagens, volumes e orquestração com Docker Compose.",
-  "sections": [
+  "levels": [
     {
-      "id": "instalacao",
-      "title": "Instalação e Setup Inicial",
-      "description": "Comandos essenciais para preparar o ambiente no Linux (Debian/Ubuntu).",
-      "example": "sudo apt update\nsudo apt install docker.io docker-compose\nsudo systemctl enable --now docker\nsudo usermod -aG docker $USER",
-      "items": [
+      "id": "basics",
+      "title": "Fundamentos e Instalação",
+      "topics": [
         {
-          "code": "docker --version",
-          "description": "Verifica a versão instalada."
+          "title": "Setup Inicial (Linux)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Comandos essenciais para preparar o ambiente em distribuições Debian/Ubuntu."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo apt update\nsudo apt install docker.io docker-compose\nsudo systemctl enable --now docker\nsudo usermod -aG docker $USER"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**docker --version** : Verifica a versão instalada.",
+                "**docker info** : Exibe informações detalhadas (número de containers, imagens, kernel, etc)."
+              ]
+            }
+          ]
         },
         {
-          "code": "docker info",
-          "description": "Exibe informações detalhadas sobre o sistema (número de containers, imagens, kernel, etc)."
-        }
-      ]
-    },
-    {
-      "id": "imagens",
-      "title": "Manipulação de Imagens",
-      "description": "Gerenciamento dos blueprints (imagens) que dão origem aos containers.",
-      "items": [
-        {
-          "code": "docker pull <imagem>:<tag>",
-          "description": "Baixa uma imagem do Docker Hub. Ex: docker pull python:3.9"
-        },
-        {
-          "code": "docker images",
-          "description": "Lista as imagens baixadas localmente."
-        },
-        {
-          "code": "docker rmi <id_imagem>",
-          "description": "Remove uma imagem local (precisa não estar em uso)."
-        },
-        {
-          "code": "docker build -t <nome> .",
-          "description": "Constrói uma imagem a partir de um Dockerfile no diretório atual."
+          "title": "Manipulação de Imagens",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Gerenciamento dos blueprints (imagens) que dão origem aos containers."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**docker pull <imagem>:<tag>** : Baixa uma imagem do Docker Hub. Ex: `docker pull python:3.9`.",
+                "**docker images** : Lista as imagens baixadas localmente.",
+                "**docker rmi <id>** : Remove uma imagem local (não pode estar sendo usada por containers).",
+                "**docker build -t <nome> .** : Constrói uma imagem a partir de um Dockerfile no diretório atual."
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "id": "containers",
-      "title": "Ciclo de Vida dos Containers",
-      "description": "Comandos para criar, rodar, parar e monitorar containers.",
-      "items": [
+      "title": "Gerenciamento de Containers",
+      "topics": [
         {
-          "code": "docker run -d -p 8080:80 --name app nginx",
-          "description": "Cria e roda um container. -d (background), -p (porta host:container)."
+          "title": "Ciclo de Vida",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Comandos para criar, rodar, parar e monitorar containers."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "docker run -d -p 8080:80 --name app nginx"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**-d** : Detached mode (roda em background).",
+                "**-p 8080:80** : Mapeia a porta 8080 do host para a 80 do container.",
+                "**--name** : Dá um nome amigável ao container."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "**docker ps -a** : Lista todos os containers (rodando e parados).",
+                "**docker stop <id>** : Para a execução de um container graciosamente (SIGTERM).",
+                "**docker rm <id>** : Remove um container (ele deve estar parado primeiro)."
+              ]
+            }
+          ]
         },
         {
-          "code": "docker ps -a",
-          "description": "Lista todos os containers (rodando e parados)."
-        },
-        {
-          "code": "docker stop <id>",
-          "description": "Para a execução de um container graciosamente."
-        },
-        {
-          "code": "docker rm <id>",
-          "description": "Remove um container (ele deve estar parado)."
-        },
-        {
-          "code": "docker exec -it <id> bash",
-          "description": "Abre um terminal interativo dentro do container rodando."
-        },
-        {
-          "code": "docker logs -f <id>",
-          "description": "Acompanha os logs do container em tempo real."
+          "title": "Debug e Logs",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Ferramentas essenciais para entender o que está acontecendo dentro do container."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**docker exec -it <id> bash** : Abre um terminal interativo dentro do container rodando.",
+                "**docker logs -f <id>** : Acompanha os logs (stdout) do container em tempo real."
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "id": "compose",
-      "title": "Docker Compose",
-      "description": "Orquestração simplificada para multi-containers.",
-      "example": "version: '3'\nservices:\n  web:\n    image: nginx\n    ports:\n      - \"80:80\"\n  db:\n    image: postgres\n    environment:\n      POSTGRES_PASSWORD: example",
-      "items": [
+      "id": "orchestration",
+      "title": "Orquestração (Compose)",
+      "topics": [
         {
-          "code": "docker-compose up -d",
-          "description": "Sobe toda a stack definida no arquivo yml em background."
-        },
-        {
-          "code": "docker-compose down",
-          "description": "Para e remove containers, redes e volumes criados pelo up."
-        },
-        {
-          "code": "docker-compose logs -f",
-          "description": "Vê os logs de todos os serviços agregados."
+          "title": "Docker Compose",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Defina múltiplos serviços (containers) em um único arquivo YAML para subirem juntos."
+            },
+            {
+              "type": "code",
+              "language": "yaml",
+              "content": "version: '3'\nservices:\n  web:\n    image: nginx\n    ports:\n      - \"80:80\"\n  db:\n    image: postgres\n    environment:\n      POSTGRES_PASSWORD: example"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**docker-compose up -d** : Sobe toda a stack definida no arquivo yml em background.",
+                "**docker-compose down** : Para e remove containers, redes e volumes criados.",
+                "**docker-compose logs -f** : Vê os logs de todos os serviços agregados numa tela só."
+              ]
+            }
+          ]
         }
       ]
     }

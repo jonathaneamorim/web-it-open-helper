@@ -1,5 +1,6 @@
 {
   "trackTitle": "Dominando o Markdown",
+  "description": "Aprenda a linguagem de marcação mais usada por desenvolvedores. Escreva documentação, READMEs e artigos de forma simples e rápida.",
   "levels": [
     {
       "id": "intro",
@@ -33,7 +34,7 @@
             {
               "type": "code",
               "language": "markdown",
-              "content": "**Negrito**: Use dois asteriscos.\n*Itálico*: Use um asterisco.\n~~Tachado~~: Use dois tils (tildes).\n__Sublinhado__: Markdown puro não tem sublinhado nativo (confunde com link), mas alguns leitores aceitam."
+              "content": "**Negrito**: Use dois asteriscos.\n*Itálico*: Use um asterisco.\n~~Tachado~~: Use dois tils (tildes)."
             },
             {
               "type": "subtitle",
@@ -87,7 +88,7 @@
             },
             {
               "type": "paragraph",
-              "content": "Checklists (muito usadas em PRs do GitHub):"
+              "content": "Checklists (muito usadas em Pull Requests do GitHub):"
             },
             {
               "type": "code",
@@ -165,6 +166,20 @@
           ]
         }
       ]
+    }
+  ],
+  "links": [
+    {
+      "title": "Markdown Guide (Oficial)",
+      "url": "[https://www.markdownguide.org/](https://www.markdownguide.org/)"
+    },
+    {
+      "title": "StackEdit (Editor Online)",
+      "url": "[https://stackedit.io/](https://stackedit.io/)"
+    },
+    {
+      "title": "CommonMark Spec",
+      "url": "[https://commonmark.org/](https://commonmark.org/)"
     }
   ]
 }
