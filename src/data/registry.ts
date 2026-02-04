@@ -6,6 +6,7 @@ import htmlData from "./programming/html.json";
 import markdownData from "./programming/markdown.json";
 import softwareData from "./softwares/desktop_linux.json";
 import soLinuxData from "./so/linux.json";
+import search from "./navigators/search.json";
 
 export interface TopicBlock {
   type: string;
@@ -46,4 +47,5 @@ export const contentRegistry: Record<string, PageContent> = {
   "markdown": markdownData as unknown as PageContent,
   "linux": soLinuxData as unknown as PageContent,
   "desktop-linux": softwareData as unknown as PageContent,
+  "search": search as unknown as PageContent,
 };
