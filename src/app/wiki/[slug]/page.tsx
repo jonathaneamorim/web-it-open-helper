@@ -1,4 +1,4 @@
-import { contentRegistry } from "@/data/registry";
+import { contentRegistry, Level, Topic, TopicBlock } from "@/data/registry";
 import { BlockRenderer } from "@/components/content/BlockRenderer";
 import { notFound } from "next/navigation";
 
@@ -50,7 +50,7 @@ export default async function UniversalPage({ params }: PageProps) {
         </header>
 
         <div className="space-y-16">
-          {data.levels.map((level: any, lvlIndex: number) => (
+          {data.levels.map((level: Level, lvlIndex: number) => (
             <section key={level.id || lvlIndex} className="relative">
               
               <div className={`sticky top-0 z-20 backdrop-blur-md bg-white/90 py-3 mb-8 border-b-2 flex items-center shadow-sm ${activeTheme.split(' ')[0]}`}>
@@ -63,7 +63,7 @@ export default async function UniversalPage({ params }: PageProps) {
               </div>
 
               <div className="grid gap-6 sm:gap-8 grid-cols-1">
-                {level.topics.map((topic: any, index: number) => (
+                {level.topics.map((topic: Topic, index: number) => (
                   <article key={index} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-all duration-300">
                     <div className="bg-slate-50/50 px-6 py-4 border-b border-slate-100">
                       <h3 className="text-lg sm:text-xl font-bold text-slate-800">
@@ -71,7 +71,7 @@ export default async function UniversalPage({ params }: PageProps) {
                       </h3>
                     </div>
                     <div className="p-6 sm:p-8">
-                      {topic.blocks.map((block: any, i: number) => (
+                      {topic.blocks.map((block: TopicBlock, i: number) => (
                         <BlockRenderer key={i} block={block} />
                       ))}
                     </div>
@@ -86,8 +86,8 @@ export default async function UniversalPage({ params }: PageProps) {
           <footer className="mt-20 pt-10 border-t border-slate-200">
             <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6">Referências Externas</h3>
             <div className="flex flex-wrap gap-4">
-              {data.links.map((link: any, idx: number) => (
-                <a key={idx} href={link.url} target="_blank" className="text-blue-600 hover:underline font-medium">
+              {data.links.map((link: { title: string; url: string }, idx: number) => (
+                <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">
                   {link.title} ↗
                 </a>
               ))}
