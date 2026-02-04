@@ -4,6 +4,13 @@ import { ScrollSection, AnimatedItem } from "@/components/home/ScrollSection";
 
 type ContentItem = PageContent & { slug: string };
 
+const CATEGORY_ORDER = [
+  "Programação",
+  "Sistemas Operacionais",
+  "Navegadores",
+  "Softwares"
+];
+
 export default function Home() {
   const groupedContent = Object.entries(contentRegistry).reduce((acc, [slug, data]) => {
     const category = data.category || "Outros";
@@ -12,14 +19,23 @@ export default function Home() {
     return acc;
   }, {} as Record<string, ContentItem[]>);
 
-  const categories = Object.keys(groupedContent).sort();
+  const categories = Object.keys(groupedContent).sort((a, b) => {
+    const indexA = CATEGORY_ORDER.indexOf(a);
+    const indexB = CATEGORY_ORDER.indexOf(b);
+
+    if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+    if (indexA !== -1) return -1;
+    if (indexB !== -1) return 1;
+
+    return a.localeCompare(b);
+  });
 
   const getTheme = (category: string) => {
     const norm = category.toLowerCase();
     if (norm.includes("program")) return "from-yellow-50 to-orange-50 border-orange-200 text-orange-600";
     if (norm.includes("sistema")) return "from-green-50 to-emerald-50 border-emerald-200 text-emerald-600";
     if (norm.includes("softw")) return "from-purple-50 to-indigo-50 border-indigo-200 text-indigo-600";
-    if (norm.includes("naveg")) return "from-cyan-50 to-blue-50 border-cyan-200 text-cyan-600";
+    if (norm.includes("naveg")) return "from-cyan-50 to-teal-50 border-cyan-200 text-cyan-600";
     return "from-slate-50 to-gray-50 border-slate-200 text-slate-600";
   };
 
@@ -47,7 +63,7 @@ export default function Home() {
           </AnimatedItem>
 
           <AnimatedItem direction="up" className="flex justify-center gap-4">
-            <a href="#Programação" className="px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-slate-200 transition-colors">
+            <a href={`#${categories[0]}`} className="px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-slate-200 transition-colors">
               Começar a Explorar
             </a>
           </AnimatedItem>
@@ -56,6 +72,7 @@ export default function Home() {
 
       {categories.map((category, index) => {
         const theme = getTheme(category);
+        
         return (
           <ScrollSection 
             key={category} 
