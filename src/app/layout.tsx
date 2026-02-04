@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/header/header";
+import { Header } from "@/components/header/header"; // Ajustei para o header novo
 import { siteMetadata } from "@/app/shared-metadata";
 
 const geistSans = Geist({
@@ -23,9 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900`}>
         <Header variant="primary"/>
-        <div className="lg:container lg:mx-auto lg:px-4">
+        <div className="w-full">
           {children}
         </div>
       </body>
