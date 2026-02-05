@@ -1,41 +1,121 @@
 {
   "trackTitle": "Trilha de Javascript",
   "category": "Programação",
-  "description": "Do básico ao avançado: Domine a linguagem da web, assincronismo e o ecossistema Node.js.",
+  "description": "Do zero ao profissional: Domine a lógica de programação, manipulação do DOM e o ecossistema moderno do JS.",
   "levels": [
     {
       "id": "basic",
-      "title": "Conteúdo Básico",
+      "title": "Fundamentos da Linguagem",
       "topics": [
         {
-          "title": "Curso básico de Javascript - CodeAcademy",
+          "title": "Variáveis e Declaração",
           "blocks": [
             {
-              "type": "list",
-              "items": [
-                "Funções de impressão (console.log, alert)",
-                "Escopo de variáveis e constantes (let, var, const)",
-                "Estruturas condicionais (if, else)",
-                "Estruturas de repetição (for, while)",
-                "Declarar e operar as funções na linguagem",
-                "Arrow function (ECMA-5)",
-                "Comprovação"
-              ]
+              "type": "paragraph",
+              "content": "No Javascript moderno, evitamos o uso de `var`. Utilizamos principalmente `let` (para valores que podem mudar) e `const` (para valores constantes)."
             },
             {
-              "type": "image",
-              "src": "/assets/codeAcademy.png",
-              "alt": "Certificado Code Academy"
+              "type": "code",
+              "language": "javascript",
+              "content": "// Maneira antiga (evitar)\nvar nome = \"Jonas\";\n\n// Maneira moderna\nlet idade = 25; // Pode ser reatribuído\nconst cpf = \"123.456.789-00\"; // Não pode mudar\n\nidade = 26; // OK\n// cpf = \"000\"; // Erro!"
+            },
+            {
+              "type": "paragraph",
+              "content": "O Javascript é case-sensitive, ou seja, `minhaVariavel` é diferente de `MinhaVariavel`."
             }
           ]
         },
         {
-          "title": "Curso de Javascript do Gustavo Guanabara",
+          "title": "Tipos de Dados Primitivos",
           "blocks": [
             {
-              "type": "link",
-              "label": "Acessar Playlist no YouTube",
-              "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1"
+              "type": "paragraph",
+              "content": "O JS é uma linguagem de tipagem dinâmica. Os principais tipos são String, Number, Boolean, Null e Undefined."
+            },
+            {
+              "type": "subtitle",
+              "content": "Strings e Template Strings"
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "const textoSimples = 'Olá Mundo';\nconst nome = \"Maria\";\n\n// Template String (uso de crase) permite interpolação\nconst mensagem = `Bem-vinda, ${nome}!`; \nconsole.log(mensagem); // Saída: Bem-vinda, Maria!"
+            },
+            {
+              "type": "subtitle",
+              "content": "Numbers e Booleans"
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "const inteiro = 10;\nconst decimal = 10.5;\nconst estaChovendo = true;\nconst temCarteira = false;"
+            }
+          ]
+        },
+        {
+          "title": "Operadores Lógicos e Aritméticos",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Operadores permitem realizar cálculos e comparações lógicas."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Aritméticos:** `+` (soma), `-` (subtração), `*` (multiplicação), `/` (divisão), `%` (resto).",
+                "**Comparação:** `==` (valor igual), `===` (valor e tipo iguais - Recomendado), `!=` (diferente).",
+                "**Lógicos:** `&&` (E), `||` (OU), `!` (Negação)."
+              ]
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "const soma = 5 + 5; // 10\nconst resto = 10 % 3; // 1\n\n// Comparação estrita\nconsole.log(5 == \"5\"); // true (converte o tipo)\nconsole.log(5 === \"5\"); // false (tipos diferentes)\n\n// Lógica\nif (soma === 10 && resto > 0) {\n  console.log(\"Condição verdadeira\");\n}"
+            }
+          ]
+        },
+        {
+          "title": "Estruturas de Controle",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Controlam o fluxo da aplicação baseando-se em condições (if/else) ou repetições (loops)."
+            },
+            {
+              "type": "subtitle",
+              "content": "Condicional IF / ELSE"
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "const hora = 14;\n\nif (hora < 12) {\n  console.log(\"Bom dia\");\n} else if (hora < 18) {\n  console.log(\"Boa tarde\");\n} else {\n  console.log(\"Boa noite\");\n}"
+            },
+            {
+              "type": "subtitle",
+              "content": "Loop FOR"
+            },
+            {
+              "type": "paragraph",
+              "content": "Utilizado quando sabemos quantas vezes queremos repetir um bloco de código."
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "for (let i = 0; i < 5; i++) {\n  console.log(`Contagem: ${i}`);\n}"
+            }
+          ]
+        },
+        {
+          "title": "Funções",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Blocos de código reutilizáveis que realizam uma tarefa específica."
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "// Função tradicional\nfunction somar(a, b) {\n  return a + b;\n}\n\n// Arrow Function (Sintaxe moderna)\nconst multiplicar = (a, b) => {\n  return a * b;\n};\n\n// Arrow Function reduzida (retorno implícito)\nconst dividir = (a, b) => a / b;\n\nconsole.log(somar(2, 2)); // 4"
             }
           ]
         }
@@ -43,120 +123,8 @@
     },
     {
       "id": "medium",
-      "title": "Conteúdo Médio",
+      "title": "Conteúdo Intermediário",
       "topics": [
-        {
-          "title": "Requisições AJAX e Fetch API",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "content": "Criação de API REST fake com JSON Server e execução de requisições."
-            },
-            {
-              "type": "link",
-              "label": "Vídeo sobre API Rest com JSON Server",
-              "url": "https://www.fabricadecodigo.com/json-server/"
-            },
-            {
-              "type": "link",
-              "label": "Documentação Oficial Json-server",
-              "url": "https://www.npmjs.com/package/json-server"
-            },
-            {
-              "type": "subtitle",
-              "content": "Detalhamento FETCH"
-            },
-            {
-              "type": "paragraph",
-              "content": "O fetch é um método nativo do Javascript que permite realizar requisições HTTP sem a necessidade de bibliotecas externas. É assíncrono e retorna uma Promise."
-            },
-            {
-              "type": "paragraph",
-              "content": "Forma 1: Utilizando .then() (maneira simplificada):"
-            },
-            {
-              "type": "code",
-              "language": "javascript",
-              "content": "fetch('http://simulation.request.com/users', config)\n  .then(res => res.json())\n  .then(response => console.log(response))\n  .catch(err => console.log(err));"
-            },
-            {
-              "type": "paragraph",
-              "content": "Forma 2: Utilizando ASYNC/AWAIT (mais limpa e legível):"
-            },
-            {
-              "type": "code",
-              "language": "javascript",
-              "content": "async function getUser() {\n  try {\n    const response = await fetch('http://simulation.request.com/users', config);\n    // inserir exceções para tratamento de erro\n    const dados = await response.json();\n    console.log(dados);\n  } catch (err) {\n    console.log(err);\n  }\n}"
-            },
-            {
-              "type": "link",
-              "label": "Documentação: Fetch responses (MDN)",
-              "url": "https://developer.mozilla.org/pt-BR/docs/Web/API/Response"
-            },
-            {
-              "type": "link",
-              "label": "Exemplo prático local: api.js",
-              "url": "/tests/jsonserver/assets/js/services/api.js"
-            }
-          ]
-        },
-        {
-          "title": "Promises e Async/Await",
-          "blocks": [
-            {
-              "type": "subtitle",
-              "content": "Detalhamento ASYNC/AWAIT"
-            },
-            {
-              "type": "paragraph",
-              "content": "Utilizados para trabalhar com código assíncrono. Servem para não travar a execução do código enquanto aguarda o resultado de operações demoradas."
-            },
-            {
-              "type": "paragraph",
-              "content": "Exemplo Síncrono (Travante):"
-            },
-            {
-              "type": "code",
-              "language": "javascript",
-              "content": "// O código fica bloqueado esperando o usuário fechar o alert\nconsole.log('Inicio');\nalert('Meio');\nconsole.log('Fim');"
-            },
-            {
-              "type": "paragraph",
-              "content": "Exemplo Assíncrono (Não travante):"
-            },
-            {
-              "type": "code",
-              "language": "javascript",
-              "content": "console.log(\"Início\");\nsetTimeout(() => {\n  console.log(\"Fim\");\n}, 2000); // Espera 2s em background\n\nconsole.log(\"Meio\"); // Executa imediatamente"
-            },
-            {
-              "type": "link",
-              "label": "Exemplo prático local: api.js",
-              "url": "/tests/jsonserver/assets/js/services/api.js"
-            },
-            {
-              "type": "subtitle",
-              "content": "Detalhamento Promises"
-            },
-            {
-              "type": "paragraph",
-              "content": "Uma Promise é uma promessa de algo que vai acontecer no futuro. Possui 3 estados principais:"
-            },
-            {
-              "type": "list",
-              "items": [
-                "**Pending (Em espera):** Estado inicial.",
-                "**Fulfilled (Cumprida):** Operação concluída com sucesso.",
-                "**Rejected (Rejeitada):** Operação falhou."
-              ]
-            },
-            {
-              "type": "link",
-              "label": "Exemplo prático local: promisse.js",
-              "url": "/tests/promisse/promisse.js"
-            }
-          ]
-        },
         {
           "title": "Manipulação DOM",
           "blocks": [
@@ -176,30 +144,52 @@
             {
               "type": "code",
               "language": "javascript",
-              "content": "const button = document.querySelector('.seletor');\nbutton.onclick = () => {\n  console.log('Pressionado');\n}"
+              "content": "const button = document.querySelector('.seletor');\nbutton.addEventListener('click', () => {\n  console.log('Botão pressionado!');\n});"
             }
           ]
         },
         {
-          "title": "Event Propagation / Bubbling",
+          "title": "Requisições AJAX e Fetch API",
           "blocks": [
             {
               "type": "paragraph",
-              "content": "O Bubbling é a propagação de eventos do elemento filho para os pais. Permite adicionar um único ouvinte em um container para gerenciar vários filhos."
+              "content": "O fetch é um método nativo do Javascript que permite realizar requisições HTTP sem a necessidade de bibliotecas externas. É assíncrono e retorna uma Promise."
             },
             {
-              "type": "code",
-              "language": "html",
-              "content": "<body>\n  <ul id=\"list\">\n    <li> Item 1 </li>\n    <li class=\"item2\"> Item 2 </li>\n    <li> Item 3 </li>\n  </ul>\n</body>\n\n<script>\n  const list = document.querySelector('#list');\n  list.addEventListener('click', (event) => {\n    // event.target acessa quem foi clicado\n    if (event.target.matches('li.item2')) {\n      console.log('O item clicado foi o item 2');\n    }\n  });\n</script>"
-            },
-            {
-              "type": "paragraph",
-              "content": "Capturing (Oposto do Bubbling - desce da raiz até o elemento):"
+              "type": "subtitle",
+              "content": "Usando Async/Await (Recomendado)"
             },
             {
               "type": "code",
               "language": "javascript",
-              "content": "list.addEventListener('click', (event) => {\n  console.log('Evento capturado no UL');\n}, true); // 'true' ativa o capturing"
+              "content": "async function buscarUsuarios() {\n  try {\n    const response = await fetch('https://api.exemplo.com/users');\n    const dados = await response.json();\n    console.log(dados);\n  } catch (erro) {\n    console.error(\"Erro ao buscar:\", erro);\n  }\n}"
+            },
+            {
+              "type": "link",
+              "label": "Documentação MDN: Fetch API",
+              "url": "https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch"
+            }
+          ]
+        },
+        {
+          "title": "Promises e Assincronismo",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Javascript é single-threaded, mas lida com operações demoradas (como ler arquivos ou acessar APIs) usando Promises para não travar a interface."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Pending:** Estado inicial, aguardando.",
+                "**Fulfilled:** Sucesso, retorna o valor.",
+                "**Rejected:** Falha, retorna o motivo do erro."
+              ]
+            },
+            {
+              "type": "code",
+              "language": "javascript",
+              "content": "console.log(\"Início\");\n\nsetTimeout(() => {\n  console.log(\"Isso roda depois de 2 segundos\");\n}, 2000);\n\nconsole.log(\"Fim (roda antes do timeout)\");"
             }
           ]
         }
@@ -207,103 +197,36 @@
     },
     {
       "id": "advanced",
-      "title": "Conteúdo Avançado",
+      "title": "Ecossistema & Tooling",
       "topics": [
         {
           "title": "Node.js e NPM",
           "blocks": [
             {
               "type": "paragraph",
-              "content": "Node.js é o ambiente de execução JS server-side. O arquivo principal é o `package.json`."
-            },
-            {
-              "type": "subtitle",
-              "content": "NPM (Node Package Manager)"
-            },
-            {
-              "type": "paragraph",
-              "content": "Gerenciador de pacotes padrão. Cria a pasta `node_modules`."
+              "content": "Node.js permite rodar Javascript fora do navegador (no servidor). O NPM é o gerenciador de pacotes que instala bibliotecas de terceiros."
             },
             {
               "type": "list",
               "items": [
-                "`npm init`: Inicia um projeto (cria package.json). Use `-y` para padrão.",
-                "`npm install`: Instala dependências.",
-                "`npm run start`: Roda o script definido na chave start.",
-                "`npm run dev`: Geralmente inicia servidor com hot-reload."
+                "`npm init -y`: Cria o arquivo package.json.",
+                "`npm install react`: Instala uma dependência.",
+                "`npm run dev`: Executa scripts personalizados."
               ]
-            },
-            {
-              "type": "link",
-              "label": "Documentação Oficial NPM",
-              "url": "https://docs.npmjs.com/"
             }
           ]
         },
         {
-          "title": "Automatizadores (Gulp)",
+          "title": "Transpiladores (Babel)",
           "blocks": [
             {
               "type": "paragraph",
-              "content": "Ferramentas para automatizar minificação, compilação (SCSS), otimização de imagens, etc. Gulp é baseado em streams."
+              "content": "O Babel converte código Javascript moderno (ES6+) para versões antigas, garantindo compatibilidade com navegadores legados."
             },
             {
               "type": "code",
               "language": "javascript",
-              "content": "// Instalação\nnpm install --global gulp-cli\nnpm install --save-dev gulp\n\n// gulpfile.js\nconst gulp = require('gulp');\ngulp.task('hello', (done) => {\n  console.log('Hello World');\n  done();\n});"
-            },
-            {
-              "type": "paragraph",
-              "content": "Para rodar: `gulp hello`"
-            },
-            {
-              "type": "link",
-              "label": "Uso prático do GULP (Local)",
-              "url": "/tests/node_gulp/"
-            }
-          ]
-        },
-        {
-          "title": "Babel.js",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "content": "O Babel é um Transpilador (não compilador) que converte JS moderno (ES6+) para versões antigas compatíveis com navegadores legados."
-            },
-            {
-              "type": "list",
-              "items": [
-                "**Sintaxe de transformação:** Converte código novo.",
-                "**Polyfill:** Adiciona recursos que não existem no navegador antigo."
-              ]
-            },
-            {
-              "type": "code",
-              "language": "bash",
-              "content": "npm install --save-dev @babel/core @babel/cli @babel/preset-env core-js"
-            },
-            {
-              "type": "paragraph",
-              "content": "Configuração (`babel.config.js`):"
-            },
-            {
-              "type": "code",
-              "language": "javascript",
-              "content": "module.exports = {\n  presets: [\n    [\n      '@babel/preset-env',\n      {\n        targets: '> 0.25%, not dead',\n        useBuiltIns: 'usage',\n        corejs: 3,\n      },\n    ],\n  ],\n};"
-            },
-            {
-              "type": "paragraph",
-              "content": "No package.json: `\"build\": \"babel src --out-dir dist\"`"
-            },
-            {
-              "type": "link",
-              "label": "Artigo: O que é Babel?",
-              "url": "https://coodesh.com/blog/dicionario/o-que-e-babel/"
-            },
-            {
-              "type": "link",
-              "label": "Uso prático do Babel (Local)",
-              "url": "/tests/node_babel/"
+              "content": "// Código Moderno (Entrada)\nconst soma = (a, b) => a + b;\n\n// Código Transpilado pelo Babel (Saída)\nvar soma = function soma(a, b) {\n  return a + b;\n};"
             }
           ]
         }
