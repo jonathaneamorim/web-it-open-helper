@@ -1,161 +1,167 @@
 {
   "trackTitle": "Git & GitHub - Controle de Versão",
   "category": "Programação",
-  "description": "O guia definitivo para versionamento. Do 'init' ao 'rebase', entenda como trabalhar em equipe sem quebrar a produção.",
+  "description": "Domine a ferramenta essencial de todo desenvolvedor. Aprenda a salvar, recuperar e compartilhar seu código com segurança.",
   "levels": [
     {
+      "id": "setup",
+      "title": "Configuração Inicial",
+      "topics": [
+        {
+          "title": "O que é Git?",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Git é um sistema de controle de versão distribuído. Imagine que ele cria \"Checkpoints\" (pontos de salvamento) no seu projeto. Se você quebrar o código, pode voltar para um ponto onde tudo funcionava."
+            },
+            {
+              "type": "paragraph",
+              "content": "Antes de começar, você **precisa** dizer ao Git quem você é. Isso ficará gravado em cada alteração que você fizer."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "# Defina seu nome\ngit config --global user.name \"Seu Nome\"\n\n# Defina seu email (o mesmo usado no GitHub)\ngit config --global user.email \"seuemail@exemplo.com\"\n\n# Verifique se deu certo\ngit config --list"
+            }
+          ]
+        },
+        {
+          "title": "Iniciando um Repositório",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Para monitorar uma pasta, você precisa transformá-la em um repositório Git."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "cd minha-pasta-projeto\ngit init"
+            },
+            {
+              "type": "paragraph",
+              "content": "Isso cria uma pasta oculta `.git` que contém todo o histórico do projeto. Nunca apague essa pasta a menos que queira perder o histórico!"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "basics",
-      "title": "Fundamentos e Ciclo de Vida",
+      "title": "Fluxo de Trabalho Local",
       "topics": [
         {
-          "title": "Os 3 Estados do Git",
+          "title": "Entendendo os 3 Estados (Teoria)",
           "blocks": [
             {
               "type": "paragraph",
-              "content": "Para dominar o Git, você precisa entender onde seus arquivos estão antes de serem salvos."
-            },
-            {
-              "type": "image",
-              "src": "/assets/git-states.png",
-              "alt": "Diagrama: Working Directory -> Staging Area -> Repository"
+              "content": "O Git não salva tudo automaticamente. Ele trabalha com 3 áreas principais. Pense nisso como tirar uma foto profissional:"
             },
             {
               "type": "list",
               "items": [
-                "**Modified** : Arquivo alterado no seu PC, mas o Git ainda não \"anotou\".",
-                "**Staged** : Arquivo preparado (com `git add`) para entrar no próximo pacote.",
-                "**Committed** : Arquivo salvo no banco de dados local do Git."
+                "**Working Directory (Cenário):** Onde você está editando os arquivos agora.",
+                "**Staging Area (Enquadramento):** Você escolhe o que vai aparecer na foto (`git add`).",
+                "**Repository (A Foto):** O registro permanente salvo no histórico (`git commit`)."
               ]
             }
           ]
         },
         {
-          "title": "Start - Comandos Iniciais",
+          "title": "Comitando Alterações (Prática)",
           "blocks": [
             {
-              "type": "list",
-              "items": [
-                "**git init** : Cria um repositório .git vazio na pasta atual.",
-                "**git clone <url>** : Baixa um projeto completo (HTTPS ou SSH).",
-                "**git status** : O comando mais importante. Mostra como estão seus arquivos agora.",
-                "**git log --oneline** : Mostra o histórico resumido.",
-                "**git diff** : Mostra o que você mudou no código mas ainda não deu `add`."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "workflow",
-      "title": "Fluxo de Trabalho Diário",
-      "topics": [
-        {
-          "title": "Manipulando Arquivos",
-          "blocks": [
-            {
-              "type": "code",
-              "language": "bash",
-              "content": "git add . \n# Adiciona tudo para Stage\n\ngit commit -m \"feat: nova funcionalidade\"\n# Salva o pacote"
+              "type": "subtitle",
+              "content": "Passo 1: Verificar o status"
             },
             {
-              "type": "list",
-              "items": [
-                "**git commit --amend** : Esqueceu um arquivo? Adiciona ao ÚLTIMO commit sem criar um novo histórico.",
-                "**git restore --staged <arq>** : Tira do Stage (desfaz o `git add`).",
-                "**git restore <arq>** : Desfaz as alterações no arquivo (perigoso, apaga seu trabalho não salvo)."
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Sincronizando com Remoto (GitHub)",
-          "blocks": [
-            {
-              "type": "list",
-              "items": [
-                "**git remote add origin <url>** : Conecta sua pasta local ao GitHub.",
-                "**git pull** : Baixa alterações da nuvem e mescla com as suas.",
-                "**git push -u origin <branch>** : Envia seus commits para a nuvem."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "branching",
-      "title": "Ramificação (Branching)",
-      "topics": [
-        {
-          "title": "Branches e Merges",
-          "blocks": [
-            {
               "type": "paragraph",
-              "content": "Branches permitem trabalhar isolado sem quebrar o código principal."
-            },
-            {
-              "type": "list",
-              "items": [
-                "**git checkout -b <nome>** : Cria e entra numa nova branch.",
-                "**git checkout <nome>** : Troca de branch.",
-                "**git merge <branch>** : Funde a branch alvo na sua atual."
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Rebase vs Merge",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "content": "O Rebase reescreve a história para deixá-la linear. Use com cuidado em branches compartilhadas!"
-            },
-            {
-              "type": "list",
-              "items": [
-                "**git rebase <base>** : Move seus commits para a ponta da branch base.",
-                "**git rebase -i HEAD~N** : Interativo. Permite editar, juntar ou apagar commits antigos."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "advanced",
-      "title": "Avançado e Dicas",
-      "topics": [
-        {
-          "title": "Stash e Reset",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "content": "Ferramentas para desfazer erros ou pausar o trabalho."
-            },
-            {
-              "type": "list",
-              "items": [
-                "**git stash** : Guarda mudanças temporariamente num 'bolso' para limpar a branch.",
-                "**git stash pop** : Devolve as mudanças guardadas.",
-                "**git reset --soft HEAD~1** : Desfaz o commit, mas mantém arquivos prontos para commitar (Stage).",
-                "**git reset --mixed HEAD~1** : (Padrão) Desfaz commit e stage, mantém arquivos modificados.",
-                "**git reset --hard HEAD~1** : (PERIGO) Apaga tudo. Volta o código exatamente como estava antes."
-              ]
-            }
-          ]
-        },
-        {
-          "title": "O Lendário Git ADOG",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "content": "Um alias para visualizar a árvore de commits colorida no terminal."
+              "content": "O comando `git status` é seu melhor amigo. Use-o sempre para saber o que está acontecendo."
             },
             {
               "type": "code",
               "language": "bash",
-              "content": "git config --global alias.adog \"log --all --decorate --oneline --graph\""
+              "content": "git status\n# Vai mostrar arquivos em vermelho (não rastreados ou modificados)"
+            },
+            {
+              "type": "subtitle",
+              "content": "Passo 2: Preparar (Staging)"
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "# Adiciona um arquivo específico\ngit add index.html\n\n# OU adiciona TUDO que foi alterado na pasta\ngit add ."
+            },
+            {
+              "type": "subtitle",
+              "content": "Passo 3: Salvar (Commit)"
+            },
+            {
+              "type": "paragraph",
+              "content": "O commit deve ter uma mensagem clara explicando O QUE foi feito."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "git commit -m \"Adiciona estrutura inicial do HTML\""
+            }
+          ]
+        },
+        {
+          "title": "Ignorando Arquivos (.gitignore)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Nem tudo deve ir para o Git. Arquivos de dependências (node_modules), senhas (.env) ou arquivos de log devem ser ignorados."
+            },
+            {
+              "type": "paragraph",
+              "content": "Crie um arquivo chamado `.gitignore` na raiz do projeto e liste o que o Git deve ignorar:"
+            },
+            {
+              "type": "code",
+              "language": "text",
+              "content": "# Conteúdo do arquivo .gitignore\nnode_modules/\n.env\n*.log\ndist/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "branches",
+      "title": "Branches e GitHub",
+      "topics": [
+        {
+          "title": "Trabalhando com Branches",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Branches (ramificações) permitem criar uma cópia paralela do seu projeto para testar novidades sem quebrar o código principal (geralmente chamado de `main` ou `master`)."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "# Cria e entra numa nova branch chamada 'nova-funcionalidade'\ngit checkout -b nova-funcionalidade\n\n# ... faça suas alterações e commits aqui ...\n\n# Volta para a branch principal\ngit checkout main\n\n# Traz as novidades da branch para a principal (Fusão)\ngit merge nova-funcionalidade"
+            }
+          ]
+        },
+        {
+          "title": "Conectando ao GitHub (Remoto)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Para enviar seu código para a nuvem (GitHub/GitLab), você precisa adicionar um \"remoto\"."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "# 1. Crie um repositório vazio no site do GitHub\n# 2. Copie a URL (HTTPS ou SSH)\n\n# Conecta seu git local ao servidor\ngit remote add origin https://github.com/usuario/projeto.git\n\n# Envia o código pela primeira vez\ngit push -u origin main"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**git push:** Envia seus commits locais para o servidor.",
+                "**git pull:** Baixa commits do servidor para o seu computador."
+              ]
             }
           ]
         }
@@ -164,16 +170,16 @@
   ],
   "links": [
     {
-      "title": "Git Documentation",
-      "url": "https://git-scm.com/doc"
+      "title": "Documentação Oficial (Em Português)",
+      "url": "https://git-scm.com/book/pt-br/v2"
     },
     {
-      "title": "Learn Git Branching (Jogo)",
-      "url": "https://learngitbranching.js.org/"
+      "title": "Learn Git Branching (Jogo Interativo)",
+      "url": "https://learngitbranching.js.org/?locale=pt_BR"
     },
     {
-      "title": "Oh My Zsh",
-      "url": "https://ohmyz.sh/"
+      "title": "Gerador de .gitignore",
+      "url": "https://www.toptal.com/developers/gitignore"
     }
   ]
 }
