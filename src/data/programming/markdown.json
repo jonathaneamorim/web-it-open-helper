@@ -16,12 +16,7 @@
             },
             {
               "type": "paragraph",
-              "content": "Basicamente, é escrever texto simples que vira HTML bonitão no final. É o padrão da indústria para documentação técnica."
-            },
-            {
-              "type": "image",
-              "src": "/assets/markdown-flow.png",
-              "alt": "Fluxo: Texto Puro -> Processador Markdown -> HTML Renderizado"
+              "content": "Basicamente, é escrever texto simples que é convertido para HTML. É o padrão da indústria para documentação técnica (GitHub, GitLab, StackOverflow, etc)."
             }
           ]
         },
@@ -30,16 +25,16 @@
           "blocks": [
             {
               "type": "paragraph",
-              "content": "Para dar ênfase ao texto, usamos asteriscos ou underlines. Simples assim:"
+              "content": "Para dar ênfase ao texto, usamos asteriscos ou tils. A sintaxe é muito intuitiva:"
             },
             {
               "type": "code",
               "language": "markdown",
-              "content": "**Negrito**: Use dois asteriscos.\n*Itálico*: Use um asterisco.\n~~Tachado~~: Use dois tils (tildes)."
+              "content": "**Negrito**: Use dois asteriscos envolvendo a palavra.\n*Itálico*: Use um asterisco.\n~~Tachado~~: Use dois tils (tildes)."
             },
             {
               "type": "subtitle",
-              "content": "Resultado Visual"
+              "content": "Como fica na tela:"
             },
             {
               "type": "list",
@@ -62,16 +57,16 @@
           "blocks": [
             {
               "type": "paragraph",
-              "content": "A hierarquia é definida pela quantidade de hashtags (`#`). Quanto menos hashtags, maior a fonte."
+              "content": "A hierarquia é definida pela quantidade de hashtags (`#`). Quanto menos hashtags, maior a fonte e a importância."
             },
             {
               "type": "code",
               "language": "markdown",
-              "content": "# Título H1 (Principal)\n## Título H2 (Secção)\n### Título H3 (Sub-secção)\n#### Título H4..."
+              "content": "# Título H1 (Principal - Use apenas um por arquivo)\n## Título H2 (Seção)\n### Título H3 (Sub-seção)\n#### Título H4..."
             },
             {
               "type": "paragraph",
-              "content": "Dica de ouro: Nunca pule níveis (não vá do H1 direto pro H3). Isso ajuda leitores de tela e SEO."
+              "content": "Dica: Mantenha a ordem lógica (H1 -> H2 -> H3) para garantir acessibilidade e bom SEO."
             }
           ]
         },
@@ -80,21 +75,25 @@
           "blocks": [
             {
               "type": "paragraph",
-              "content": "Criar listas é intuitivo. Use hifens para listas não ordenadas e números para as ordenadas."
+              "content": "Você pode criar listas ordenadas (números) ou não ordenadas (bullets) facilmente."
             },
             {
               "type": "code",
               "language": "markdown",
-              "content": "- Item 1\n- Item 2\n  - Subitem (basta indentar)\n\n1. Primeiro passo\n2. Segundo passo"
+              "content": "- Item de lista com hífen\n* Ou com asterisco\n  - Subitem (basta dar espaço/tab)\n\n1. Primeiro passo\n2. Segundo passo"
+            },
+            {
+              "type": "subtitle",
+              "content": "Task Lists (Checklists)"
             },
             {
               "type": "paragraph",
-              "content": "Checklists (muito usadas em Pull Requests do GitHub):"
+              "content": "Muito comum em Pull Requests no GitHub para marcar tarefas:"
             },
             {
               "type": "code",
               "language": "markdown",
-              "content": "- [x] Tarefa concluída\n- [ ] Tarefa pendente"
+              "content": "- [x] Tarefa concluída (com x)\n- [ ] Tarefa pendente (com espaço)"
             }
           ]
         }
@@ -109,7 +108,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "content": "Essa é a parte que a gente mais usa. Existem duas formas: Inline (no meio do texto) e em Bloco."
+              "content": "Existem duas formas: **Inline** (no meio da frase) e em **Bloco** (multilinha)."
             },
             {
               "type": "subtitle",
@@ -117,20 +116,20 @@
             },
             {
               "type": "paragraph",
-              "content": "Use crases simples (` `) para destacar comandos, variáveis ou arquivos."
+              "content": "Use uma crase simples (` `) para destacar comandos, nomes de arquivos ou variáveis."
             },
             {
               "type": "code",
               "language": "markdown",
-              "content": "Para instalar, rode o comando `npm install` no seu terminal."
+              "content": "Para instalar, rode o comando `npm install` no terminal."
             },
             {
               "type": "subtitle",
-              "content": "Bloco de Código"
+              "content": "Bloco de Código (Code Fencing)"
             },
             {
               "type": "paragraph",
-              "content": "Use três crases (```) e especifique a linguagem para ter o syntax highlighting colorido."
+              "content": "Use três crases (```) para criar um bloco. Se você especificar a linguagem logo após as crases, o Markdown aplica coloração de sintaxe."
             },
             {
               "type": "code",
@@ -144,7 +143,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "content": "A sintaxe de link e imagem é quase igual, a diferença é um ponto de exclamação."
+              "content": "A sintaxe de imagem é igual a de link, mas com um ponto de exclamação na frente."
             },
             {
               "type": "code",
@@ -157,12 +156,12 @@
             },
             {
               "type": "paragraph",
-              "content": "Use o sinal de maior `>` para destacar avisos ou citações."
+              "content": "Use o sinal de maior `>` para criar blocos de destaque ou citações."
             },
             {
               "type": "code",
               "language": "markdown",
-              "content": "> Importante: Sempre faça backup antes de rodar esse comando."
+              "content": "> Importante: Sempre faça backup antes de rodar comandos destrutivos."
             }
           ]
         }
