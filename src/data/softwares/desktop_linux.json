@@ -1,99 +1,81 @@
 {
   "trackTitle": "Softwares Desktop Linux Essenciais",
   "category": "Softwares",
-  "description": "Guia de instalação e uso das principais ferramentas de desenvolvimento, banco de dados e utilitários de sistema para Linux.",
+  "description": "Guia de pós-instalação. As principais ferramentas de desenvolvimento, banco de dados e utilitários para transformar seu Linux em uma máquina de trabalho.",
   "levels": [
     {
       "id": "dev-ides",
       "title": "IDEs e Editores de Código",
       "topics": [
         {
-          "title": "JetBrains (IntelliJ, PHPStorm, Android Studio)",
+          "title": "VS Code (O Padrão de Mercado)",
           "blocks": [
             {
               "type": "paragraph",
-              "content": "As IDEs mais poderosas do mercado. IntelliJ para Java, PHPStorm para PHP e Android Studio (baseado no IntelliJ) para Mobile."
+              "content": "Leve, extensível e gratuito. É o editor mais usado no mundo atualmente."
             },
             {
-              "type": "image",
-              "src": "/assets/jetbrains-toolbox.png",
-              "alt": "Interface do JetBrains Toolbox"
-            },
-            {
-              "type": "subtitle",
-              "content": "Como Instalar (Recomendado)"
+              "type": "code",
+              "language": "bash",
+              "content": "# Via repositório oficial (Recomendado no Fedora)\nsudo rpm --import https://packages.microsoft.com/keys/microsoft.asc\nsudo sh -c 'echo -e \"[code]\\nname=Visual Studio Code\\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\\nenabled=1\\ngpgcheck=1\\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc\" > /etc/yum.repos.d/vscode.repo'\nsudo dnf check-update\nsudo dnf install code"
             },
             {
               "type": "paragraph",
-              "content": "A melhor forma é via **JetBrains Toolbox**, que gerencia atualizações e versões automaticamente."
+              "content": "Ou via Flatpak (Sandboxed):"
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "flatpak install flathub com.visualstudio.code"
+            }
+          ]
+        },
+        {
+          "title": "JetBrains (IntelliJ, PHPStorm, WebStorm)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "As IDEs mais poderosas para Java, PHP e Javascript. A melhor forma de instalar é via **JetBrains Toolbox**, pois ele gerencia as atualizações e versões do Java/JDK automaticamente."
             },
             {
               "type": "list",
               "items": [
-                "1. Baixe o `.tar.gz` no site oficial.",
-                "2. Extraia e execute o arquivo `jetbrains-toolbox`.",
-                "3. Escolha a IDE (Community ou Ultimate) e clique em Install."
+                "1. Baixe o `.tar.gz` do Toolbox no site oficial.",
+                "2. Extraia o arquivo.",
+                "3. Clique duas vezes no executável `jetbrains-toolbox`.",
+                "4. Escolha a IDE na lista e clique em Install."
               ]
-            },
-            {
-              "type": "paragraph",
-              "content": "Alternativa via Flatpak:"
-            },
-            {
-              "type": "code",
-              "language": "bash",
-              "content": "flatpak install flathub com.google.AndroidStudio\nflatpak install flathub com.jetbrains.IntelliJ-IDEA-Community\nflatpak install flathub com.jetbrains.PhpStorm"
             }
           ]
         },
         {
-          "title": "Eclipse",
+          "title": "Editores Leves & Clássicos",
           "blocks": [
             {
-              "type": "paragraph",
-              "content": "IDE clássica e robusta para desenvolvimento Java Enterprise e C++."
-            },
-            {
-              "type": "code",
-              "language": "bash",
-              "content": "sudo dnf install eclipse\n# Ou baixe o instalador no site oficial"
-            }
-          ]
-        },
-        {
-          "title": "Code::Blocks",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "content": "IDE leve focada em desenvolvimento C e C++. Muito usada em ambientes acadêmicos."
-            },
-            {
-              "type": "code",
-              "language": "bash",
-              "content": "sudo dnf install codeblocks\n# Para instalar compiladores extras:\nsudo dnf groupinstall \"Development Tools\""
-            }
-          ]
-        },
-        {
-          "title": "Editores Leves (Notepad++ / Gedit)",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "content": "**Gedit:** Editor nativo do GNOME, simples e rápido."
-            },
-            {
-              "type": "code",
-              "language": "bash",
-              "content": "sudo dnf install gedit"
+              "type": "subtitle",
+              "content": "Notepad++ (Via Snap)"
             },
             {
               "type": "paragraph",
-              "content": "**Notepad++:** Clássico do Windows. No Linux, roda via Snap (Wine embutido)."
+              "content": "O clássico do Windows rodando perfeitamente no Linux através de uma camada Wine embutida no Snap."
             },
             {
               "type": "code",
               "language": "bash",
               "content": "sudo snap install notepad-plus-plus"
+            },
+            {
+              "type": "subtitle",
+              "content": "Code::Blocks"
+            },
+            {
+              "type": "paragraph",
+              "content": "Ideal para estudantes de C/C++. Leve e direto ao ponto."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install codeblocks\n# Instale as ferramentas de compilação básicas\nsudo dnf groupinstall \"Development Tools\""
             }
           ]
         }
@@ -104,11 +86,11 @@
       "title": "Banco de Dados e Backend",
       "topics": [
         {
-          "title": "DBeaver (Universal)",
+          "title": "DBeaver (Gerenciador Universal)",
           "blocks": [
             {
               "type": "paragraph",
-              "content": "A melhor ferramenta GUI universal. Conecta com MySQL, PostgreSQL, SQLite, Oracle e tudo mais."
+              "content": "Esqueça instalar um cliente para cada banco. O DBeaver conecta em PostgreSQL, MySQL, SQLite, Oracle e SQL Server numa única interface."
             },
             {
               "type": "code",
@@ -118,49 +100,16 @@
           ]
         },
         {
-          "title": "MySQL Workbench & PgAdmin",
+          "title": "Docker & Docker Compose",
           "blocks": [
             {
               "type": "paragraph",
-              "content": "Ferramentas oficiais e específicas para seus respectivos bancos."
-            },
-            {
-              "type": "list",
-              "items": [
-                "**MySQL Workbench**: Modelagem visual e administração MySQL.",
-                "**PgAdmin 4**: Administração avançada para PostgreSQL."
-              ]
+              "content": "A forma moderna de rodar bancos de dados sem \"sujar\" seu sistema operacional principal."
             },
             {
               "type": "code",
               "language": "bash",
-              "content": "# MySQL Workbench\nflatpak install flathub com.oracle.mysql.workbench\n\n# PgAdmin4 (Modo Desktop)\nsudo dnf install pgadmin4-desktop"
-            }
-          ]
-        },
-        {
-          "title": "XAMPP (Web Server Stack)",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "content": "Pacote que inclui Apache, MariaDB, PHP e Perl. Essencial para dev PHP local."
-            },
-            {
-              "type": "list",
-              "items": [
-                "1. Baixe o instalador `.run` no site do Apache Friends.",
-                "2. Dê permissão: `chmod +x xampp-linux-x64-installer.run`.",
-                "3. Instale: `sudo ./xampp-linux-x64-installer.run`."
-              ]
-            },
-            {
-              "type": "paragraph",
-              "content": "Para rodar a interface gráfica:"
-            },
-            {
-              "type": "code",
-              "language": "bash",
-              "content": "cd /opt/lampp\nsudo ./manager-linux-x64.run"
+              "content": "# Instalação no Fedora\nsudo dnf install docker docker-compose\n\n# Iniciar o serviço\nsudo systemctl start docker\nsudo systemctl enable docker\n\n# Dar permissão ao seu usuário (para não usar sudo)\nsudo usermod -aG docker $USER\nnewgrp docker"
             }
           ]
         },
@@ -169,7 +118,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "content": "Plataforma completa para desenvolvimento e teste de APIs (REST, GraphQL, etc)."
+              "content": "Ferramenta essencial para testar rotas de API (REST, GraphQL, Websocket)."
             },
             {
               "type": "code",
@@ -182,33 +131,36 @@
     },
     {
       "id": "system-utils",
-      "title": "Sistema e Utilitários",
+      "title": "Ferramentas de Sistema",
       "topics": [
         {
-          "title": "VirtualBox",
+          "title": "Virtualização",
           "blocks": [
             {
-              "type": "paragraph",
-              "content": "Software de virtualização para rodar outros sistemas operacionais dentro do Linux."
+              "type": "subtitle",
+              "content": "Oracle VirtualBox"
             },
             {
-              "type": "image",
-              "src": "/assets/virtualbox.png",
-              "alt": "VirtualBox rodando Windows no Linux"
+              "type": "paragraph",
+              "content": "Para rodar Windows ou outras distros Linux dentro do seu sistema."
             },
             {
               "type": "code",
               "language": "bash",
-              "content": "sudo dnf install VirtualBox\n# Instale também o Extension Pack pelo site oficial para suporte a USB"
+              "content": "sudo dnf install VirtualBox"
+            },
+            {
+              "type": "paragraph",
+              "content": "Dica: Baixe o **Extension Pack** no site oficial para ter suporte a USB 3.0 dentro da VM."
             }
           ]
         },
         {
-          "title": "GParted & Balena Etcher",
+          "title": "Discos e Boot",
           "blocks": [
             {
               "type": "paragraph",
-              "content": "**GParted:** Gerenciador de partições (redimensionar, formatar, criar)."
+              "content": "**GParted:** O melhor particionador gráfico. Redimensione e formate discos com segurança."
             },
             {
               "type": "code",
@@ -217,39 +169,25 @@
             },
             {
               "type": "paragraph",
-              "content": "**Balena Etcher:** Ferramenta segura para gravar imagens ISO em Pen Drives (Bootável)."
+              "content": "**Balena Etcher:** Para criar Pen Drives Bootáveis (Flashar ISOs)."
             },
             {
               "type": "paragraph",
-              "content": "Geralmente distribuído como **AppImage**. Baixe, dê permissão de execução e clique duas vezes."
+              "content": "Geralmente distribuído como arquivo `.AppImage`. Basta baixar, clicar com botão direito -> Propriedades -> Permitir execução -> Rodar."
             }
           ]
         },
         {
-          "title": "Grub Customizer",
+          "title": "FTP e Transferência",
           "blocks": [
             {
               "type": "paragraph",
-              "content": "Interface gráfica para configurar o menu de boot (GRUB). Útil para quem faz Dual Boot."
+              "content": "**FileZilla:** Cliente FTP clássico para subir arquivos para servidores."
             },
             {
               "type": "code",
               "language": "bash",
-              "content": "sudo dnf install grub-customizer"
-            }
-          ]
-        },
-        {
-          "title": "FileZilla",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "content": "Cliente FTP/SFTP para transferência de arquivos para servidores remotos."
-            },
-            {
-              "type": "code",
-              "language": "bash",
-              "content": "sudo dnf install filezilla"
+              "content": "flatpak install flathub org.filezilla.FileZilla"
             }
           ]
         }
@@ -260,37 +198,11 @@
       "title": "Design e Dia a Dia",
       "topics": [
         {
-          "title": "Modelagem (BrModelo e Draw.io)",
+          "title": "Navegadores e Comunicação",
           "blocks": [
             {
               "type": "paragraph",
-              "content": "**Draw.io:** Criador de diagramas de fluxo e arquitetura."
-            },
-            {
-              "type": "code",
-              "language": "bash",
-              "content": "flatpak install flathub com.jgraph.drawio.desktop"
-            },
-            {
-              "type": "paragraph",
-              "content": "**BrModelo:** Ferramenta clássica para modelagem de banco de dados (DER). É um executável Java."
-            },
-            {
-              "type": "list",
-              "items": [
-                "1. Certifique-se de ter o Java instalado (`sudo dnf install java`).",
-                "2. Baixe o `.jar` do BrModelo.",
-                "3. Execute: `java -jar BrModelo.jar`."
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Navegação e Mídia (Brave e Spotify)",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "content": "**Brave Browser:** Navegador focado em privacidade e bloqueio de anúncios nativo."
+              "content": "**Brave Browser:** Focado em privacidade e bloqueador de anúncios nativo."
             },
             {
               "type": "code",
@@ -299,12 +211,43 @@
             },
             {
               "type": "paragraph",
-              "content": "**Spotify:** Streaming de música."
+              "content": "**Discord:** Essencial para comunidades de dev."
             },
             {
               "type": "code",
               "language": "bash",
-              "content": "flatpak install flathub com.spotify.Client"
+              "content": "flatpak install flathub com.discordapp.Discord"
+            }
+          ]
+        },
+        {
+          "title": "Diagramas e Modelagem",
+          "blocks": [
+            {
+              "type": "subtitle",
+              "content": "Draw.io"
+            },
+            {
+              "type": "paragraph",
+              "content": "Ferramenta incrível para fluxogramas, diagramas de classe e arquitetura de AWS/Azure."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "flatpak install flathub com.jgraph.drawio.desktop"
+            },
+            {
+              "type": "subtitle",
+              "content": "BrModelo (Java)"
+            },
+            {
+              "type": "paragraph",
+              "content": "Clássico acadêmico para modelagem de banco de dados (DER/MER). Requer Java instalado."
+            },
+            {
+              "type": "code",
+              "language": "bash",
+              "content": "sudo dnf install java-latest-openjdk\n# Depois execute:\njava -jar BrModelo.jar"
             }
           ]
         }
